@@ -1,13 +1,50 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>graf comics</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>   
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+          
+            <i class="fi fi-sr-menu-burger"></i>
+            <i class="fi fi-rr-search"></i>
+            <p>Логотип<p>
+    </header>
+    <main>
+        <div class="back">
+            <i class="fi fi-rr-angle-small-left"></i>  
+            <p>Вернуться назад</p>
+        </div>
+        <img src="assets/image_2023-10-20_19-59-52.png" alt="logo">
+
+        <div class="container">
+            <div class="auth-box">
+                <h2>Вход</h2>
+                <p>через соцсети</p>
+                <div class="media_icons">
+                    <i class="fi fi-brands-google"></i>
+                    <i class="fi fi-brands-vk"></i>
+                    <i class="fi fi-brands-yandex"></i>
+                </div>
+                <p>или</p>
+                <form class="auth-form">
+                    <label for="username">Никнейм или эл.почта</label>
+                    <input type="text" id="username" name="username" placeholder="Введите никнейм или e-mail">
+    
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" placeholder="Введите пароль">
+    
+                    <button>Войти</button>
+                </form>
+                <div class="reg_link">Еще нет аккаунта?<a>Зарегистрируйтесь</a></div>
+            </div>
+        </div>
+    </main>
+</body>
 </html>

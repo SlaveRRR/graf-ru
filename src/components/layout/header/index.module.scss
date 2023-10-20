@@ -1,0 +1,7 @@
+@use '../../../styles/global' as *;
+.header-container{
+    padding-top: .93em;
+    padding-bottom: 1em;
+    background-color: white;
+    @include flex($justify:space-between)
+}

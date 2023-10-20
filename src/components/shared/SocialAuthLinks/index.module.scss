@@ -1,0 +1,5 @@
+@use '../../../styles/global' as *;
+
+.social-links{
+    @include flex($gap:1.86em)
+}

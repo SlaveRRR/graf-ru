@@ -1,5 +1,7 @@
 import { FC } from 'react'
-import Header from './components/layout/header';
+
+
+import Layout from './components/layout';
 import Registration from './components/Registration';
 
 // const routes = [
@@ -12,10 +14,9 @@ import Registration from './components/Registration';
 
 const App : FC = () =>{
   return (
-    <>
-    <Header/>
-    <Registration/>
-    </>
+    <Layout>
+      <Registration/>
+    </Layout>
     
   )
 }

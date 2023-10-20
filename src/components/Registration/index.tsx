@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Logo } from '../UI'
 
@@ -8,6 +8,7 @@ import cn from 'classnames'
 import styles from './index.module.scss'
 import { BackLink, SocialAuthLinks } from '../shared'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { ctx } from '../../context/contextProvider'
 
 type FormData = {
     username: string;
@@ -16,14 +17,25 @@ type FormData = {
     repeatPassword: string;
 }
 
+
+
 const Registration = () => {
     const [visible, setVisible] = useState<boolean>(false);
-    const { register, formState: { errors, dirtyFields, isDirty, isValid }, getValues, setError, reset, handleSubmit } = useForm<FormData>({
+    const {loader:[isActive,setActive]} = useContext(ctx)
+    const { register, formState: { errors, dirtyFields }, getValues, setError, reset, handleSubmit } = useForm<FormData>({
         mode: 'onChange',
         shouldFocusError: true
     });
     const handler: SubmitHandler<FormData> = async (data) => {
-        console.log(data);
+        // имитация api
+        const delay = (ms:number) : Promise<void> => new Promise((res,rej) => setTimeout(() => res(),ms))
+        setActive(true)
+        await delay(3000)
+        
+        setActive(false)
+        console.log(data)
+        reset()
+        alert('Вы зарегистрировались')
         return
     }
 

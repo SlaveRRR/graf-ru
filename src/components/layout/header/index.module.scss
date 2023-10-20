@@ -1,5 +1,9 @@
 @use '../../../styles/global' as *;
 .header-container{
+    
+    z-index: 999;
+    position: relative;
+
     padding-top: .93em;
     padding-bottom: 1em;
     background-color: white;

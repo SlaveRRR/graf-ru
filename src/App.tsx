@@ -1,22 +1,35 @@
 import { FC } from 'react'
 
 
-import Layout from './components/layout';
-import Registration from './components/Registration';
 
-// const routes = [
-//   {
-//     path:'/',
-//     element:<Registration/>
-//   }
-// ]
+import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import Signup from './pages/Signup';
+import Signin from './pages/Signin';
+import Error from './pages/Error';
+import LayoutPage from './pages/Layout';
+
+const router = createBrowserRouter([{
+  path:'/',
+  element:<LayoutPage/>,
+  errorElement:<Error/>,
+  children:[
+    {
+      path:'/',
+      element:<Signup/>
+    },
+    {
+      path:'/signin',
+      element:<Signin/>
+    },
+  ]
+}])
+
 
 
 const App : FC = () =>{
   return (
-    <Layout>
-      <Registration/>
-    </Layout>
+    <RouterProvider router={router}/>
+   
     
   )
 }

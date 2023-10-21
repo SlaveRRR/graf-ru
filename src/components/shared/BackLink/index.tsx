@@ -8,7 +8,7 @@ import cn from 'classnames'
 import styles from './index.module.scss'
 
 type Props = {
-    mixClass:string[]
+    mixClass?:string[]
 }
 
 const BackLink: FC<Props> = ({mixClass}) => {

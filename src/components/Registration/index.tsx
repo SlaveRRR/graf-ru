@@ -29,6 +29,7 @@ const Registration = () => {
         mode: 'onChange',
         shouldFocusError: true
     });
+    
     const handler: SubmitHandler<FormData> = async (data) => {
         // имитация api
         const delay = (ms: number): Promise<void> => new Promise((res, rej) => setTimeout(() => res(), ms))
@@ -59,6 +60,7 @@ const Registration = () => {
                         <legend className='visuallyhidden'>Пользовательские данные</legend>
                         <label className={styles['registration__label']} htmlFor="username">Никнейм</label>
                         <input {...register('username', {
+                            
                             required: true,
                             minLength: {
                                 value: 7,

@@ -10,7 +10,7 @@
    
    display: none;
     &__text {
-        animation: loading 1.3s ease-in-out infinite;
+        animation: loading 1.2s ease-in-out infinite;
         color:$main-color;
         font-size: 1.43rem;
         font-weight: 600;
@@ -34,14 +34,15 @@
         border-radius: 5px;
     }
     &__item:nth-child(1){
-        animation: circle 1s ease-in-out infinite;
+        animation: circle 1s ease-in-out infinite,scaling 1s ease-in  infinite;
     }
     &__item:nth-child(2){
-        animation: circle 1s ease-in-out 200ms infinite;
+        animation: circle 1s ease-in-out 150ms infinite, scaling 1s ease-in 100ms infinite;
     }
     &__item:nth-child(3){
-        animation: circle 1s ease-in-out 400ms infinite;
+        animation: circle 1s ease-in-out 250ms infinite,scaling 1s ease-in 150ms infinite ;
     }
+   
 }
 @keyframes loading {
     0%{
@@ -57,13 +58,26 @@
         clip-path: inset(0px 0px 0px 0px);
     }
 }
-@keyframes circle {
+@keyframes scaling {
     from{
-        background-color: #E4DEFE;
+        
         transform: scale(1);
     }
     to{
-        background-color: $main-color;
+       
         transform: scale(1.5);
     }
 }
+@keyframes circle {
+    from{
+        background-color: #E4DEFE;
+        // transform: scale(1);
+    }
+    to{
+        background-color: $main-color;
+        // transform: scale(1.5);
+    }
+}
+
+
+

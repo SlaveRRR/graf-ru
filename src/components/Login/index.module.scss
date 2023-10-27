@@ -73,10 +73,15 @@
         }
 
         &--error {
+            background:#E545451A;
+            color:#e54545;
             border: 2px solid red;
+            
         }
 
         &--success {
+            background: #0f99181a;
+            color: #0f9918;
             border: 2px solid #09ff00;
         }
     }

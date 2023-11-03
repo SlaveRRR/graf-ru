@@ -1,7 +1,10 @@
 import React, { FC, useState } from 'react';
 
-interface IContext {
+
+
+interface IContext{
     loader: [boolean, (active: boolean) => void],
+    burger:[boolean, (active: boolean) => void],
 }
 export const ctx = React.createContext<IContext>({} as IContext)
 
@@ -9,10 +12,12 @@ type Props = {
     children: React.ReactNode
 }
 const ContextProvider: FC<Props> = ({ children }) => {
-    const loader = useState<boolean>(false);
+    const loader = useState(false);
+    const burger = useState(false);
     return (
         <ctx.Provider value={{
-            loader
+            loader,
+            burger
         }}>
             {children}
         </ctx.Provider>

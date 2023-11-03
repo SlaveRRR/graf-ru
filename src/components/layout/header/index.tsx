@@ -1,4 +1,6 @@
 import React, { FC } from 'react'
+
+
 import { BurgerMenu, Search } from '../../UI/index';
 
 import cn from 'classnames'
@@ -8,6 +10,7 @@ import styles from './index.module.scss'
 
 
 const Header: FC = () => {
+   
     return (
         <header>
             <div className={cn(styles["header-container"],'container')}>

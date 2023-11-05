@@ -17,7 +17,7 @@ type FormData = {
 }
 
 const Login : FC = () => {
-    const [visible,setVisible] = useState<boolean>(false);
+    const [visible,setVisible] = useState(false);
     const navigate = useNavigate();
     const {loader:[isActive,setActive]} = useContext(ctx);
 

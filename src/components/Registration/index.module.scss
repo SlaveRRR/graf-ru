@@ -7,12 +7,16 @@
     }
 
     &__head {
-        font-size: 1.43rem;
+        font-size: clamp(1.43rem, .5rem + 3.8vw, 3.72rem);
         font-weight: 600;
         line-height: 24px;
         text-align: center;
-        margin-bottom: .1em;
+        margin-bottom: .3em;
 
+        @include mediaMin($size: $device-XM) {
+            line-height: 59px;
+
+        }
     }
 
     &__backLink {
@@ -22,23 +26,50 @@
 
     &__logo {
         margin-bottom: 1em;
+
+        @include mediaMin($size: $device-XM) {
+            display: none;
+        }
     }
 
     &__with-social {
+        font-size: 1rem;
         font-weight: 400;
         line-height: 17px;
         letter-spacing: 0em;
         margin-bottom: 1em;
+
+        @include mediaMin($size: $device-XM) {
+            font-size: 1.72rem;
+            font-weight: 500;
+            line-height: 29px;
+            margin-bottom: .7em;
+        }
+
+
+
     }
 
     &__social {
         margin-bottom: .86em;
+
+        @include mediaMin($size: $device-XM) {
+            margin-bottom: 2em;
+        }
     }
 
     &__or {
+        font-size: clamp(0.876rem, 0.7rem + 1.6vw, 2.15rem);
         font-weight: 400;
         line-height: 17px;
         margin-bottom: .8em;
+
+        @include mediaMin($size: $device-XM) {
+            font-weight: 500;
+            line-height: 29px;
+            margin-bottom: 1.2em;
+        }
+
     }
 
     &__fieldset {
@@ -55,18 +86,34 @@
         border: none;
         border-radius: 2em;
         padding: .5em 2em;
-        font-size: .86em;
+        
+        font-size: clamp(.86rem, 1.9vw, 1.72rem);
         font-weight: 600;
         line-height: 15px;
         background-color: #F2EFFE;
-        
-
         margin-bottom: 1.5em;
+
+        width: clamp(210px, 50vw, 510px);
+
+        @include mediaMin($size: $device-XM) {
+            padding: .8em 1.8em;
+            font-weight: 500;
+            line-height: 24px;
+        }
 
         &::placeholder {
             font-size: .86em;
             font-weight: 600;
             line-height: 15px;
+            font-size: clamp(.86rem, 1.9vw, 1.72rem);
+
+            @include mediaMin($size: $device-XM) {
+                font-weight: 500;
+                line-height: 24px;
+            }
+
+
+
         }
 
         &--marginNo {
@@ -74,8 +121,8 @@
         }
 
         &--error {
-            background:#E545451A;
-            color:#e54545;
+            background: #E545451A;
+            color: #e54545;
             border: 2px solid red;
         }
 
@@ -87,9 +134,16 @@
     }
 
     &__label {
+        font-size: clamp(1rem, 1rem + .1vw, 2rem);
         margin-bottom: .4em;
         font-weight: 500;
         line-height: 17px;
+
+        @include mediaMin($size: $device-XM) {
+            line-height: 29px;
+          
+            font-size: clamp(1rem, 1rem + 1.1vw, 2.1rem);
+        }
     }
 
     &__next {
@@ -159,10 +213,11 @@
     }
 }
 
-.agreement{
+.agreement {
     @include flex;
     margin-bottom: .5em;
-    &__label{
+
+    &__label {
         font-weight: 500;
         font-size: .8rem;
         text-wrap: balance;

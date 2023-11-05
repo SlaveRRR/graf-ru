@@ -1,0 +1,33 @@
+@use '../../../styles/global' as *;
+
+.footer-container {
+    padding-top: 2em;
+}
+
+.icons {
+    @include flex($gap: 1em);
+    margin-bottom: 1.5em;
+}
+
+.links {
+    @include flex($wrap: wrap, $gap: 1.3em);
+
+    &__item {
+        position: relative;
+        text-decoration: none;
+        color: $main-color;
+        font-size: .8rem;
+        font-weight: 500;
+        line-height: 12px;
+    }
+}
+
+.dot {
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    background: #2D283E;
+}

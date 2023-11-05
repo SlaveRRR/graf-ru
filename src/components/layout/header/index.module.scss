@@ -1,11 +1,59 @@
 @use '../../../styles/global' as *;
-.header-container{
-    
+
+
+
+.header-container {
+
     z-index: 999;
     position: relative;
-
+   
     padding-top: .93em;
     padding-bottom: 1em;
-    background-color: white;
-    @include flex($justify:space-between)
+    background: #F8F8F8;
+    @include flex($justify: space-between);
+
+    @include mediaMin($size: $device-XM) {
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
+       
+
+    }
+}
+
+.nav {
+    display: none;
+
+    @include mediaMin($size: $device-XM) {
+        @include flex($gap: 1em)
+    }
+
+    &__item {
+        color: #000000;
+        text-decoration: none;
+        font-size: clamp(1.2rem, 1.5vw, 1.72rem);
+        font-weight: 500;
+        line-height: 29px;
+
+
+    }
+}
+
+.signin-link {
+    display: none;
+    border: 1px solid  #7A5AF8;
+    color: #7A5AF8;
+    border-radius: 3rem;
+    padding: .7rem 2rem;
+   
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+   
+    
+
+    @include mediaMin($size: $device-XM) {
+        display: block;
+    }
+
 }

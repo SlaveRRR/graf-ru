@@ -22,7 +22,7 @@ type FormData = {
 
 
 const Registration = () => {
-    const [visible, setVisible] = useState<boolean>(false);
+    const [visible, setVisible] = useState(false);
     const { loader: [isActive, setActive] } = useContext(ctx);
     const navigate = useNavigate();
     const { register, formState: { errors, dirtyFields }, getValues, setError, reset, handleSubmit } = useForm<FormData>({

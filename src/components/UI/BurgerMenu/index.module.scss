@@ -12,24 +12,24 @@
     
 }
 .burger-container {
-    width: 21px;
-    height: 21px;
+    width: 30px;
+    height: 30px;
 
     &__item{
         transition: all .3s;
     }
 
     &--active{
-        & > .burger-container__item:nth-child(1){
-            transform: rotate(40deg) translate(6px);
-        }
-
         & > .burger-container__item:nth-child(2){
-            opacity: 0;
+            transform: rotate(40deg) translate(4px,-6px);
         }
 
         & > .burger-container__item:nth-child(3){
-            transform: rotate(-40deg) translate(-15px);
+            opacity: 0;
+        }
+
+        & > .burger-container__item:nth-child(4){
+            transform: rotate(-40deg) translate(-9px);
         }
     }
 

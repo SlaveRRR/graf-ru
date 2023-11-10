@@ -4,5 +4,5 @@ import Logo from './Logo'
 import Loader from './Loader'
 import Badge from "./Badge";
 import Slider from './Slider';
-
-export { BurgerMenu,Search, Logo,Loader,Badge,Slider }
+import Button from "./Button";
+export { BurgerMenu,Search, Logo,Loader,Badge,Slider,Button }

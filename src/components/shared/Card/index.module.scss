@@ -18,6 +18,28 @@
         position: absolute;
         top: 7px;
         right: 6px;
+        transition: all .3s;
+        clip-path: border-box;
+        & > path{
+            transition: all .3s;
+        }
+        &--liked {
+            
+            & > path{
+                fill: red;
+            }
+            
+            animation: like .3s ease-in-out 1 forwards;
+
+            @keyframes like {
+                0% {
+                    transform: scale(0.5);
+                  }
+                  100% {
+                    transform: scale(1.2);
+                  }
+            }
+        }
     }
 
 }

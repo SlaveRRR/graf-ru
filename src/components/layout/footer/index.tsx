@@ -64,8 +64,8 @@ const Footer: FC = () => {
                 <Link className={styles['links__item']} to='/about'>Конфиденциальность <span className={styles["dot"]}></span></Link>
                 <Link className={styles['links__item']} to='/about'>Агентский договор</Link>
                 </div>
-                <p>Почта для связи <a href="mailto:grafru@gmail.com">Почта</a></p>
-                <p>Логотип</p>
+                <p className={styles['links__contacts']}>Почта для связи: <a className={styles['links__mail']} href="mailto:grafru@gmail.com">почта</a></p>
+                <p className={styles['links__logo']}>Логотип</p>
             </div>
         </footer>
     )

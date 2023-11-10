@@ -80,16 +80,6 @@
         max-width: 94px;
         justify-self: center;
     }
-
-   
-    // &__item:nth-child(3) {
-    //     grid-column: 1/3;
-    //     grid-row: 3/4;
-    // }
-
-    // &__item:nth-child(4) {
-    //     grid-row: span 2;
-    // }
 }
 
 .popular-section {
@@ -145,17 +135,15 @@
 }
 
 .genres {
-    @include flex($gap: .72em);
+    @include flex($gap: .72em,$justify:flex-start);
     overflow-x: scroll;
-
+    scroll-behavior: smooth;
     &::-webkit-scrollbar {
         width: 0;
     }
 }
 
-.slider-section {
-    margin-bottom: 4em;
-}
+
 
 .slider-container__link {
     margin: 0 0 .9em 2em;
@@ -193,6 +181,7 @@
         display: block;
         padding: .5em 1em;
         border: 0.89px solid #7A5AF8;
+        color:$primary-color;
         border-radius: 10px;
         text-decoration: none;
         font-size: .7rem;

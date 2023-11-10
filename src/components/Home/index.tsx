@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 
 import cn from 'classnames';
 import { Card, ArrowLink } from '../shared/index';
-import { Badge, Slider } from '../UI';
+import { Badge, Button, Slider } from '../UI';
 import { Link } from 'react-router-dom';
 
 type Props = {}
@@ -14,22 +14,27 @@ const Home = (props: Props) => {
     return (
         <>
             <section className={styles['image-section']}>
-                <div className={cn(styles['image-container'], "container")}>
-                    <div className={styles['image-container__text-container']}>
-                        <h2 className={styles['image-container__slogan']}>Слоган</h2>
-                        <p className={styles['image-container__text']}>Текст</p>
+            <div className={styles["cards"]}>
+                        <div className={cn(styles["cards__item--start"],styles["cards__item"])} />
+                        <div className={styles["cards__item"]} />
+                        <div className={styles["cards__item"]} />
+                        <div className={styles["cards__item"]} />
+                      
                     </div>
-
-                    <div className={styles["cards"]}>
-                        <div className={styles["cards__item"]} />
-                        <div className={styles["cards__item"]} />
-                        <div className={styles["cards__item"]} />
-                        <div className={styles["cards__item"]} />
-                        <div className={styles["cards__item"]} />
-                        <div className={styles["cards__item"]} />
-                        <div className={styles["cards__item"]} />
+                <div className={styles['image-container']}>
+                    <div className={styles['image-container__text-container']}>
+                        <h1 className={styles['image-container__slogan']}>Создаем вселенную комиксов вместе</h1>
+                        <p className={styles['image-container__text']}>Здесь каждый комикс находит своего читателя</p>
+                        <Button>Добавить комикс</Button>
                     </div>
                 </div>
+                <div className={styles["cards"]}>
+                        <div className={styles["cards__item"]} />
+                        <div className={styles["cards__item"]} />
+                        <div className={styles["cards__item"]} />
+                        <div className={styles["cards__item"]} />
+                       
+                    </div>
             </section>
             <section className={styles['popular-section']}>
                 <div className={cn(styles['popular-container'], "container")}>

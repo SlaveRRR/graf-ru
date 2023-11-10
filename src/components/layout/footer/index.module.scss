@@ -2,6 +2,7 @@
 
 .footer-container {
     padding-top: 2em;
+    padding-bottom: 1.8em;
 }
 
 .icons {
@@ -11,6 +12,7 @@
 
 .links {
     @include flex($wrap: wrap, $gap: 1.3em);
+    margin-bottom: .2em;
 
     &__item {
         position: relative;
@@ -19,6 +21,32 @@
         font-size: .8rem;
         font-weight: 500;
         line-height: 12px;
+    }
+
+    &__contacts {
+        width: max-content;
+        margin: 0 auto .3em;
+    }
+
+    &__mail {
+        text-decoration: none;
+        color: $main-color;
+        font-size: .8rem;
+        font-weight: 500;
+        line-height: 12px;
+        
+    }
+
+    &__logo {
+        width: max-content;
+        margin: 0 auto;
+        color: #2D283E;
+        font-size: 1.22rem;
+        font-weight: 700;
+        line-height: 21px;
+        
+
+
     }
 }
 

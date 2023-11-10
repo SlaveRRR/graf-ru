@@ -151,7 +151,7 @@ const Registration = () => {
                                             })} className={cn(styles['registration__input'], {
                                                 [styles['registration__input--error']]: errors?.repeatPassword,
                                                 [styles['registration__input--success']]: dirtyFields?.repeatPassword && !errors?.repeatPassword,
-                                            })} type={visible ? "text" : "password"} placeholder='Введите пароль ещё раз' />
+                                            })} type={visible ? "text" : "password"} placeholder='Повторите пароль' />
                                             <button type='button' onPointerDown={() => setVisible(!visible)} className={styles['registration__visibility']}>
                                                 {
                                                     !visible ?

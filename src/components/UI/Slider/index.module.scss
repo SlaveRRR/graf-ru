@@ -2,15 +2,15 @@
 
 .slider{
     width: 290px;
-    height: 110px;
+    margin:  0 auto;
 }
 
 .slide {
-    width: 290px;
+   
     padding: .9em 1.2em;
     @include flex($gap:2em,$justify:space-between);
    
-    max-width: 290px;
+   
     border-radius: 10px;
     background: #FFFFFF;
 
@@ -49,16 +49,7 @@
     }
 }
 
-// .swiper-pagination-bullet {
-//     border-radius: 5px;
-//     width: 6px;
-//     height: 6px;
-//    background: #DFDFDF;
-//   }
-  
-//   .swiper-pagination-bullet-active {
-//     background: $main-color;
-//   }
+
   
   .swiper-pagination-bullet {
     width: 150px;

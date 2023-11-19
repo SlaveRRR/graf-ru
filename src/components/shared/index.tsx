@@ -1,7 +1,6 @@
 import BackLink from "./BackLink";
 import SocialAuthLinks from "./SocialAuthLinks";
-import Card from "./Card";
 import ArrowLink from "./ArrowLink";
+import Stats from "./Stats";
 
-
-export {BackLink,SocialAuthLinks,ArrowLink,Card}
+export {BackLink,SocialAuthLinks,ArrowLink,Stats}

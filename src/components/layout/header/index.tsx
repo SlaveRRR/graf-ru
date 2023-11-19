@@ -12,9 +12,13 @@ import { Link } from 'react-router-dom';
 
 const navLinks = {
     'Логотип':'/',
+    'Регистрация':'/signup',
+    'Авторизация':'/signin',
+    'Профиль':'/profile',
     "Каталог":'/catalog',
     "Популярное":'/popular',
-    'Блог':'/blog'
+    'Блог':'/blog',
+    
 }
 
 const Header: FC = () => {
@@ -24,7 +28,9 @@ const Header: FC = () => {
         <header className={styles['header']}>
             <div className={cn(styles["header-container"],'container')}>
                 
-                    <nav className={styles['nav']}>
+                    <nav onClick={() => setActive(false)} className={cn(styles['nav'],{
+                        [styles['nav--active']]:isActive
+                    })}>
                 {
                      Object.entries(navLinks).map(([text,url],i) => <Link className={styles['nav__item']} key={i+1} to={url}>{text}</Link>)
                 }

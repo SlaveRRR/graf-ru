@@ -8,13 +8,14 @@ import Signin from './pages/Signin';
 import Error from './pages/Error';
 import LayoutPage from './pages/Layout';
 import HomePage from './pages/Home';
+import Profile from './pages/Profile';
+
 
 
 const router = createBrowserRouter([{
   path:'/',
   element:<LayoutPage/>,
   errorElement:<Error/>,
-
   children:[
     {
       path:'/',
@@ -28,6 +29,10 @@ const router = createBrowserRouter([{
       path:'/signin',
       element:<Signin/>
     },
+    {
+      path:'/profile',
+      element:<Profile/>
+    },
   ]
 }])
 
@@ -35,7 +40,7 @@ const router = createBrowserRouter([{
 
 const App : FC = () =>{
   return (
-    <RouterProvider router={router}/>
+    <RouterProvider  router={router}/>
    
     
   )

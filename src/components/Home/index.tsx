@@ -4,8 +4,8 @@ import React from 'react';
 import styles from './index.module.scss';
 
 import cn from 'classnames';
-import { Card, ArrowLink } from '../shared/index';
-import { Badge, Button, Slider } from '../UI';
+import { ArrowLink } from '../shared/index';
+import { Badge, Button, Slider,Card } from '../UI';
 import { Link } from 'react-router-dom';
 
 type Props = {}

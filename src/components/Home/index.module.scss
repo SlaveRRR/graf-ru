@@ -135,6 +135,7 @@
 }
 
 .genres {
+    padding: .0.9375em;
     @include flex($gap: .72em,$justify:flex-start);
     overflow-x: scroll;
     scroll-behavior: smooth;

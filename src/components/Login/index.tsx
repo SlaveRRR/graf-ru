@@ -96,7 +96,7 @@ const Login : FC = () => {
             </fieldset>
             <input className={styles['login__signin-btn']} type="submit" value="Войти" />
         </form>
-        <p className={styles['login__signin']}>Еще нет аккаунта? <Link className={styles['login__link']} to={'/'}>Зарегистриуйтесь</Link></p>
+        <p className={styles['login__signin']}>Еще нет аккаунта? <Link className={styles['login__link']} to={'/signup'}>Зарегистриуйтесь</Link></p>
     </div>
 </section>
   )

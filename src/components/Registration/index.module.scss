@@ -2,6 +2,8 @@
 
 .registration {
     &__container {
+        background: hsl(0, 0%, 100%);
+        clip-path: inset(0 5px 0px 5px);
         @include flex($dir: column);
         padding-top: 1em;
     }
@@ -18,7 +20,6 @@
 
         }
     }
-
     &__backLink {
         align-self: flex-start;
         margin-bottom: 2em;
@@ -82,7 +83,7 @@
     }
 
     &__input {
-        @include focus($outline: 1px solid #6c697a);
+        @include focus($outline: 1px solid #807d7d);
         border: none;
         border-radius: 2em;
         padding: .5em 2em;
@@ -123,13 +124,13 @@
         &--error {
             background: #E545451A;
             color: #e54545;
-            border: 2px solid red;
+          
         }
 
         &--success {
             background: #0f99181a;
             color: #0f9918;
-            border: 2px solid #09ff00;
+           
         }
     }
 

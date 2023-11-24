@@ -82,7 +82,7 @@ const Login : FC = () => {
                                     [styles['login__input--error']]: errors?.password,
                                     [styles['login__input--success']]: dirtyFields?.password && !errors?.password,
 
-                                })} type={visible ? "text" : "password"} placeholder='Придумайте пароль' />
+                                })} type={visible ? "text" : "password"} placeholder='Введите пароль' />
                                 <button type='button' onPointerDown={() => setVisible(!visible)} className={styles['login__visibility']}>
                                     {
                                         !visible ?

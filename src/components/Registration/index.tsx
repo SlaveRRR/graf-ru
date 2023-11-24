@@ -23,13 +23,17 @@ type FormData = {
 
 const Registration = () => {
     const [visible, setVisible] = useState(false);
+    const [isVisibleAlert, setAlert] = useState(false);
     const { loader: [isActive, setActive] } = useContext(ctx);
     const navigate = useNavigate();
     const { register, formState: { errors, dirtyFields }, getValues, setError, reset, handleSubmit } = useForm<FormData>({
         mode: 'onChange',
         shouldFocusError: true
     });
-    
+    const handleClick =  () : void =>{
+        setAlert(true)
+        setTimeout(() => setAlert(false),5000)
+    }
     const handler: SubmitHandler<FormData> = async (data) => {
         // имитация api
         const delay = (ms: number): Promise<void> => new Promise((res, rej) => setTimeout(() => res(), ms))
@@ -176,7 +180,10 @@ const Registration = () => {
 
                             )
                             :
-                            <button className={styles['registration__next']} type='button'>Далее</button>
+                         
+                            
+                            <button onClick={() => handleClick()} className={styles['registration__next']} type='button'>Далее</button>
+                           
                     }
 
 

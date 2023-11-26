@@ -9,6 +9,7 @@ import Error from './pages/Error';
 import LayoutPage from './pages/Layout';
 import HomePage from './pages/Home';
 import Profile from './pages/Profile';
+import CatalogPage from './pages/Catalog';
 
 
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([{
     {
       path:'/profile',
       element:<Profile/>
+    },
+    {
+      path:'/catalog',
+      element:<CatalogPage/>
     },
   ]
 }])

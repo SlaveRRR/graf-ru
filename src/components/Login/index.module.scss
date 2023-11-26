@@ -1,7 +1,10 @@
 @use '../../styles/global' as *;
 
 .login {
+  
     &__container {
+        background: hsl(0, 0%, 100%);
+        clip-path: inset(0 5px 0px 5px);
         @include flex($dir: column);
         padding-top: 1em;
     }
@@ -55,7 +58,7 @@
         border: none;
         border-radius: 2em;
         padding: .5em 2em;
-        font-size: .86rem;
+        font-size: .87rem;
         min-width: 17.5em;
         font-weight: 600;
         line-height: 15px;
@@ -75,14 +78,14 @@
         &--error {
             background:#E545451A;
             color:#e54545;
-            border: 2px solid red;
+          
             
         }
 
         &--success {
             background: #0f99181a;
             color: #0f9918;
-            border: 2px solid #09ff00;
+          
         }
     }
 

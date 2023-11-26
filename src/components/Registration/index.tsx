@@ -16,20 +16,24 @@ type FormData = {
     email: string;
     password: string;
     repeatPassword: string;
-    isAgree:boolean;
+    isAgree: boolean;
 }
 
 
 
 const Registration = () => {
     const [visible, setVisible] = useState(false);
+    const [isVisibleAlert, setAlert] = useState(false);
     const { loader: [isActive, setActive] } = useContext(ctx);
     const navigate = useNavigate();
     const { register, formState: { errors, dirtyFields }, getValues, setError, reset, handleSubmit } = useForm<FormData>({
         mode: 'onChange',
         shouldFocusError: true
     });
-    
+    const handleClick = (): void => {
+        setAlert(true)
+        setTimeout(() => setAlert(false), 2000)
+    }
     const handler: SubmitHandler<FormData> = async (data) => {
         // имитация api
         const delay = (ms: number): Promise<void> => new Promise((res, rej) => setTimeout(() => res(), ms))
@@ -60,7 +64,7 @@ const Registration = () => {
                         <legend className='visuallyhidden'>Пользовательские данные</legend>
                         <label className={styles['registration__label']} htmlFor="username">Никнейм</label>
                         <input {...register('username', {
-                            
+
                             required: true,
                             minLength: {
                                 value: 7,
@@ -164,8 +168,8 @@ const Registration = () => {
                                         {Boolean(errors?.isAgree) && <p className={styles['registration__error']}>{errors?.isAgree?.message}</p>}
                                         <div className={styles["agreement"]}>
                                             <label className={styles['agreement__label']} htmlFor="agree">Согласен с обработкой данных</label>
-                                            <input {...register('isAgree',{
-                                                required:'Обязательное поле!'
+                                            <input {...register('isAgree', {
+                                                required: 'Обязательное поле!'
                                             })} className={styles['agreement__input']} type="checkbox" id='agree' />
                                         </div>
 
@@ -176,7 +180,12 @@ const Registration = () => {
 
                             )
                             :
-                            <button className={styles['registration__next']} type='button'>Далее</button>
+                            <>
+                                {isVisibleAlert && <p className={styles['registration__error']}>Заполние никнейм и e-mail!</p>}
+                                <button onClick={() => handleClick()} className={styles['registration__next']} type='button'>Далее</button>
+                            </>
+
+
                     }
 
 

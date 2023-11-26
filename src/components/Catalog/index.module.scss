@@ -1,0 +1,46 @@
+@use '../../styles/global' as *;
+.catalog {
+    &__container{
+        padding-top: .2em;
+    }
+    &__search-label{
+        display: block;
+        position: relative;
+        margin-bottom: 1.1em;
+        &::before {
+            content: url('../../assets/search.svg');
+            top: 50%;
+            left: 11px;
+            transform: translateY(-50%);
+            color: #8a8a8a;
+            position: absolute;
+        }
+    }
+    &__search-field {
+        display: block;
+        border: none;
+        border-radius: 526px;
+        max-width: 290px;
+        width: 100%;
+        height: 35px;
+        padding: .3em 2.8em;
+        font-size: .86rem;
+        font-weight: 600;
+        line-height: 15px;
+      
+        background-color: #F2EFFE;
+        color: #9991b9;
+        @include focus($outline:1px solid #8a8a8a);
+        
+
+        
+
+        &::placeholder {
+            background-color: #F2EFFE;
+            color: #CABDFC;
+            font-size: .86rem;
+            font-weight: 600;
+            line-height: 15px;
+        }
+    }
+}

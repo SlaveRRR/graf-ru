@@ -47,8 +47,9 @@ const Slider: FC<Props> = ({ arr }) => {
                     {arr.map((text, ind) =>
 
                         <SwiperSlide 
+                        key={ind}
                         className={styles['slide']}>
-
+                        
                             <div className={styles['slide__text-container']}>
                                 <p className={styles['slide__text']}>{text}</p>
                                 <Link className={styles['slide__link']} to={'/article'}>Читать подробнее</Link>

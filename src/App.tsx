@@ -13,6 +13,7 @@ import CatalogPage from './pages/Catalog';
 
 
 
+
 const router = createBrowserRouter([{
   path:'/',
   element:<LayoutPage/>,
@@ -45,8 +46,11 @@ const router = createBrowserRouter([{
 
 const App : FC = () =>{
   return (
-    <RouterProvider  router={router}/>
-   
+    <>
+    <RouterProvider   router={router}/>
+    </>
+    
+
     
   )
 }

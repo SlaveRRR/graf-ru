@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './styles/style.scss'
 import ContextProvider from './context/contextProvider.tsx'
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
 

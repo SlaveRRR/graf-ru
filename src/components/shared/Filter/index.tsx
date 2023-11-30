@@ -1,7 +1,7 @@
 
 import React, { FC, useState } from 'react'
 
-import { focus, genres, tags,rating,status,viewCounts } from '@/data/filters.json'
+import { focus, genres, tags,rating,status,viewCounts,sort } from '@/data/filters.json'
 import cn from 'classnames'
 import styles from './index.module.scss'
 interface Filter {
@@ -20,9 +20,11 @@ type FilterItem = {
 }
 
 
-const sortData = ['по названию (А-Я)', 'по дате добавления', 'по дате обновления глав', 'по дате чтения', 'по количеству глав (по возрастанию)', 'по количеству глав (по убыванию)', 'по рейтингу', 'по просмотрам', 'по количеству лайков']
+type Props ={
+    urlFilter:string
+}
 
-const Filter: FC = () => {
+const Filter: FC<Props> = ({urlFilter}) => {
 
     const [isVisibleFilter, setVisible] = useState(false)
     const [filtersObj, setFiltersObj] = useState<Filter>({
@@ -36,8 +38,9 @@ const Filter: FC = () => {
       
     })
 
+    const initialState = urlFilter ? [{text:urlFilter,type:"genres"}] : []
     
-    const [filters, setFilters] = useState<FilterItem[]>([]);
+    const [filters, setFilters] = useState<FilterItem[]>(initialState as FilterItem[]);
 
     const handleClick = () => {
         setVisible(!isVisibleFilter)
@@ -250,7 +253,7 @@ const Filter: FC = () => {
 
                                 <div className={styles["filter__sort-content"]}>
 
-                                    {filtersObj.isVisibleSort && sortData.map((text, i) => <label htmlFor={`${text}id`} className={cn(styles["filter__sort"])}><span className={styles['filter__radio-btn']}></span><input name='radiobtn' id={`${text}id`} type="radio" className={styles['filter__sort-inp']} /> {text}</label>)}
+                                    {filtersObj.isVisibleSort && sort.map((text, i) => <label htmlFor={`${text}id`} className={cn(styles["filter__sort"])}><span className={styles['filter__radio-btn']}></span><input name='radiobtn' id={`${text}id`} type="radio" className={styles['filter__sort-inp']} /> {text}</label>)}
                                 </div>
 
 

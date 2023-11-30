@@ -5,6 +5,7 @@ import { useNavigation } from 'react-router-dom'
 import {Outlet} from 'react-router-dom';
 import Layout from '../components/layout';
 import { RouterLoader } from '../components/UI';
+import ScrollToTop from '@/components/ScrollToTop';
 
 
 const LayoutPage : FC = () => {
@@ -13,6 +14,7 @@ const LayoutPage : FC = () => {
       <Layout>
         {state === 'loading' && <RouterLoader/>}
         <Outlet/>
+        <ScrollToTop/>
       </Layout>
     
     

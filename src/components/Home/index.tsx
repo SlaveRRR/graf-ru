@@ -62,13 +62,13 @@ const Home = (props: Props) => {
             </section>
             <section className={styles["genre-section"]}>
 
-                <ArrowLink mixClass={[styles['genre-container__link']]} text='Жанры' url='/genres' />
+                <ArrowLink mixClass={[styles['genre-container__link']]} text='Жанры' url='/catalog' />
                 <div className={styles["genres"]}>
-                    <Badge text='Повседневность' url='/usually' />
-                    <Badge text='Фантастика' url='/fantastic' />
-                    <Badge text='Детектив' url='/detective' />
-                    <Badge text='Трагедия' url='/tragedy' />
-                    <Badge text='Романтика' url='/roman' />
+                    <Badge text='Повседневность' url='/catalog?genre=повседневность' />
+                    <Badge text='Фантастика' url='/catalog?genre=фантастика' />
+                    <Badge text='Детектив' url='/catalog?genre=детектив' />
+                    <Badge text='Трагедия' url='/catalog?genre=трагедия' />
+                    <Badge text='Романтика' url='/catalog?genre=романтика' />
                 </div>
             </section>
             <section className={styles["slider-section"]}>

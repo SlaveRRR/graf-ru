@@ -4,7 +4,8 @@ import React, { FC, useState } from 'react'
 import { focus, genres, tags,rating,status,viewCounts,sort } from '@/data/filters.json'
 import cn from 'classnames'
 import styles from './index.module.scss'
-interface Filter {
+import { MixClass } from '@/types/mixClass.type';
+interface IFilter {
     isVisibleGenre: boolean;
     isVisibleNaprav: boolean;
     isVisibleTags: boolean;
@@ -22,12 +23,12 @@ type FilterItem = {
 
 type Props ={
     urlFilter:string
-}
+} & MixClass
 
-const Filter: FC<Props> = ({urlFilter}) => {
+const Filter: FC<Props> = ({urlFilter,mixClass}) => {
 
     const [isVisibleFilter, setVisible] = useState(false)
-    const [filtersObj, setFiltersObj] = useState<Filter>({
+    const [filtersObj, setFiltersObj] = useState<IFilter>({
         isVisibleGenre: false,
         isVisibleNaprav: false,
         isVisibleTags: false,
@@ -45,7 +46,7 @@ const Filter: FC<Props> = ({urlFilter}) => {
     const handleClick = () => {
         setVisible(!isVisibleFilter)
     }
-    console.log(filters)
+  
     const handleFilter = (filter: FilterItem, event: React.MouseEvent<HTMLInputElement>): void => {
         const { checked } = event.target as HTMLInputElement
 
@@ -54,7 +55,7 @@ const Filter: FC<Props> = ({urlFilter}) => {
         checked ? setFilters([...filters, {text:filterText,type}]) : setFilters(filters.filter(({text}) => text !== filterText))
     }
     return (
-        <div className={styles["filter__container"]}>
+        <div className={cn(styles["filter__container"],...mixClass)}>
             <div className={styles["filter__filters"]}>
                 <button onClick={() => handleClick()} className={styles["filter__button"]}><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.5 5H9.5" stroke="black" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />

@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 
 const navLinks = {
-    'Логотип': '/',
+    'Главная':'/',
     'Регистрация': '/signup',
     'Авторизация': '/signin',
     'Профиль': '/profile',
@@ -33,9 +33,15 @@ const Header: FC = () => {
                 <nav onClick={() => setActive(false)} className={cn(styles['nav'],{
                     [styles['nav--active']] : isActive
                 })}>
+                    <figure className={styles['avatar']}>
+                        <img className={styles['avatar__img']} src='./avatar.svg'/>
+                        <figcaption className={styles['avatar__name']}>Никнейм</figcaption>
+                    </figure>
+                    
                     {
                         Object.entries(navLinks).map(([text, url], i) => <Link className={styles['nav__item']} key={i + 1} to={url}>{text}</Link>)
                     }
+                    <button className={styles['auth-btn']}>Выйти</button>
                 </nav>
 
 

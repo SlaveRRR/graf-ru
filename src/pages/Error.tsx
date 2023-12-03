@@ -1,11 +1,20 @@
 
-import React from 'react'
+import React, { FC } from 'react'
+import Layout from '@/components/layout'
+import ScrollToTop from '@/components/ScrollToTop'
 
-type Props = {}
 
-const Error = (props: Props) => {
+const Error: FC = () => {
   return (
-    <div>Not found</div>
+    <Layout>
+      <div className="container">
+        <h2 style={{paddingTop:'2em',fontWeight:'bold',fontSize:'1.5rem',textAlign:'center'}}>Страница не найден</h2>
+      </div>
+
+      <ScrollToTop />
+    </Layout>
+
+
   )
 }
 

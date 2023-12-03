@@ -3,9 +3,9 @@
 
 
 .header-container {
-
+    box-shadow: 0px 1px 2px 1px rgba($color: #000000, $alpha: .1);
     z-index: 999;
-    position: relative;
+    position: fixed;
 
     padding-top: .93em;
     padding-bottom: 1em;
@@ -20,37 +20,60 @@
     }
 }
 
+
+
 .nav {
-   
+
     @include flex($gap: 1em);
 
+
     @include mediaMax($size: $device-XM) {
-        @include flex($dir: column, $gap: 1em);
+        padding-top: 1em;
+        padding-left: 1em;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(fit);
+        grid-auto-rows: repeat(auto-fit, min-content);
+        row-gap: 0;
+        // @include flex($dir: column, $gap: 1em, $justify: flex-start, $align: flex-start);
         position: fixed;
         background-color: #FFFFFF;
         top: 0;
-        padding-top: 5vh;
-        left: 0;
+        left: -50%;
         width: 45vw;
         height: 100dvh;
         visibility: hidden;
-        transition: visibility 0.6s linear, transform 0.6s ease;
-        transform: translateX(-100%);
+
+        transition: visibility .45s linear, left .45s ease-out;
         box-shadow: 2px 0px 10px 7px rgba(0, 0, 0, 0.5);
+
+
     }
 
     &--active {
         visibility: visible;
-        transform: translate(0);
+        left: 0;
     }
 
+
     &__item {
+
         color: #000000;
         text-decoration: none;
         font-size: clamp(1.2rem, 1.5vw, 1.72rem);
         font-weight: 500;
         line-height: 29px;
+
+        @include mediaMax($size: $device-XM) {
+            border-bottom: 1px solid #DFDFDF;
+            padding-bottom: .5em;
+        }
+        
+        &--active{
+            color:$main-color;
+        }
     }
+    
 }
 
 .signin-link {
@@ -71,4 +94,43 @@
         display: block;
     }
 
+}
+
+.avatar {
+    display: none;
+
+    @include mediaMax($size: $device-XM) {
+        @include flex($gap: 1.2em);
+
+        &__img {
+            max-width: 100%;
+            object-fit: cover;
+        }
+
+        &__name {
+            color: $main-color;
+            font-size: .86rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            line-height: normal;
+        }
+    }
+
+}
+
+.auth-btn {
+    display: none;
+
+    @include mediaMax($size:$device-XM){
+        padding: 0;
+        justify-self: start;
+        color: #E54545;
+        background: transparent;
+        border: none;
+        font-size: .86rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
 }

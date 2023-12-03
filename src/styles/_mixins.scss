@@ -1,31 +1,121 @@
-@mixin flex($gap:0,$justify:center,$align:center,$dir:row,$wrap:nowrap){
-    display: flex;
-    flex-direction: $dir;
-    gap: $gap;
-    flex-wrap: $wrap;
-    justify-content: $justify;
-    align-items: $align;
+@mixin flex($gap: 0, $justify: center, $align: center, $dir: row, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $dir;
+  gap: $gap;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
 }
 
 
-@mixin focus($outline:none) {
-    &:focus {
-      outline: $outline;
-    }
-  
-    &:focus-visible {
-      @content;
-    }
+@mixin focus($outline: none) {
+  &:focus {
+    outline: $outline;
   }
 
-@mixin mediaMin($size){
-    @media (min-width:$size) {
-            @content;
-    }
+  &:focus-visible {
+    @content;
+  }
 }
 
-@mixin mediaMax($size){
-    @media (max-width:$size) {
-            @content;
-    }
+@mixin mediaMin($size) {
+  @media (min-width:$size) {
+    @content;
+  }
+}
+
+@mixin mediaMax($size) {
+  @media (max-width:$size) {
+    @content;
+  }
+}
+
+@mixin filterNames {
+  &--genres {
+    background: #82BCFC;
+  }
+
+  &--tags {
+
+    background: #F590D7;
+  }
+
+  &--viewcounts {
+
+    background: #AF9CFB;
+  }
+
+  &--rating {
+
+    background: #7A5AF8;
+  }
+
+  &--status {
+
+    background: #4D37A5;
+  }
+
+  &--naprav {
+    background: #2E90FA;
+  }
+
+  &--size {
+    background: #2573C8;
+  }
+
+  &--theme{
+    background: #AF9CFB;
+  }
+
+  &--author{
+    background: #7A5AF8;
+  }
+}
+
+@mixin colorFilters {
+  &:has(input:checked) {
+    color: #FFF;
+    background: #82BCFC;
+  }
+
+  &--tags:has(input:checked) {
+    color: #FFF;
+    background: #F590D7;
+  }
+
+  &--viewcounts:has(input:checked) {
+    color: #FFF;
+    background: #AF9CFB;
+  }
+
+  &--rating:has(input:checked) {
+    color: #FFF;
+    background: #7A5AF8;
+  }
+
+  &--status:has(input:checked) {
+    color: #FFF;
+    background: #4D37A5;
+  }
+
+  &--naprav:has(input:checked) {
+    color: #FFF;
+    background: #2E90FA;
+  }
+
+  &--size:has(input:checked) {
+    color: #FFF;
+    background: #2573C8;
+  }
+
+  &--theme:has(input:checked) {
+    color: #FFF;
+    background: #AF9CFB;
+  }
+
+  &--author:has(input:checked) {
+    color: #FFF;
+    background: #7A5AF8;
+  }
+
 }

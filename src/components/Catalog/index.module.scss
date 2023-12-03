@@ -1,7 +1,7 @@
 @use '../../styles/global' as *;
 .catalog {
     &__container{
-        padding-top: .2em;
+        padding-top: 1em;
     }
     &__search-label{
         display: block;
@@ -42,5 +42,9 @@
             font-weight: 600;
             line-height: 15px;
         }
+    }
+
+    &__filter{
+        margin-bottom: 1em;
     }
 }

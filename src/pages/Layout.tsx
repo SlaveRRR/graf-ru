@@ -10,6 +10,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 
 const LayoutPage : FC = () => {
   const { state } = useNavigation();
+  
   return (
       <Layout>
         {state === 'loading' && <RouterLoader/>}

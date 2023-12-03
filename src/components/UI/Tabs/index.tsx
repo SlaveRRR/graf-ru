@@ -14,19 +14,17 @@ type ScrollActive = {
     width: number
 }
 
-type TabsObj = {
-    0: 0,
-    [key: number]: number
-}
 
-const containerWidth = 293
+
+
 
 const Tabs: FC<Props> = ({ tabs, children, mixClass }) => {
+
     const [numActive, setNumActive] = useState<number>(0)
 
     const [scrollActive, setScrollActive] = useState<ScrollActive>({
         left: 0,
-        width: Math.round((containerWidth - 21 * tabs.length - 1) / tabs.length - 1)
+        width:0,
     })
 
     const [tabsWidths, setTabsWidths] = useState<number[]>([])
@@ -36,22 +34,22 @@ const Tabs: FC<Props> = ({ tabs, children, mixClass }) => {
     const changeActive = (index: number) => {
 
         setNumActive(index)
-        const { left } = document.querySelectorAll(`.${styles["btns__item"]}`).item(index).getBoundingClientRect()
-
-        setScrollActive({ ...scrollActive, width: tabsWidths[index], left: left - tabsWidths[index] / 4 })
+        const {left} = document.querySelectorAll(`.${styles["btns__item"]}`).item(index).getBoundingClientRect()
+     
+        setScrollActive({ ...scrollActive, width: tabsWidths[index], left: left - tabsWidths[index] / 8    })
     }
 
 
     useEffect(() => {
         const widths: number[] = []
 
-        document.querySelectorAll(`.${styles["btns__item"]}`).forEach((v) => widths.push(v.clientWidth))
-
-        setTabsWidths(widths.map(v => v + 5))
+        document.querySelectorAll(`.${styles["btns__item"]}`).forEach((v) => widths.push(v.clientWidth + v.clientWidth/4))
+      
+        setTabsWidths(widths)
 
         const { left } = document.querySelectorAll(`.${styles["btns__item"]}`).item(0).getBoundingClientRect()
-
-        setScrollActive({ ...scrollActive, width: widths[0], left: left - widths[0] / 4 })
+       
+        setScrollActive({ ...scrollActive, width: widths[0], left: left - widths[0] / 8  })
 
         setNumActive(0)
 
@@ -59,7 +57,7 @@ const Tabs: FC<Props> = ({ tabs, children, mixClass }) => {
 
     }, [])
 
-    console.log(children)
+    
     return (
         <div className={"tabs"}>
             <div className={cn(styles["tabs__scroller"], ...mixClass)}>

@@ -1,12 +1,18 @@
 
 
-import React,{FC} from 'react'
+import React, { FC, useState } from 'react'
 import cn from 'classnames'
 import styles from './index.module.scss'
 import { Stats } from '../shared'
 import { Cards, Tabs } from '../UI'
 
-const ProfileReader : FC = () => {
+const ProfileAuthor: FC = () => {
+    const gifts = [<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>]
+
+    const [opened,setOpened] = useState<boolean>(false)
+
+    const text = opened ? 'Скрыть' :  'Показать всё' 
+
     return (
         <>
             <section className={styles["profile-header"]}>
@@ -31,22 +37,41 @@ const ProfileReader : FC = () => {
                         mixClass={[styles['profile__stats']]}
                         stats={[
                             {
+                                name: 'Тайтлы',
+                                count: 0
+                            },
+                            {
                                 name: 'Подписчики',
                                 count: 0
                             },
                             {
-                                name: 'Комментарии',
+                                name: 'Лайки',
                                 count: 0
                             },
                         ]} />
                 </div>
             </section>
+            <section className={styles["gifts"]}>
+                <div className={cn(styles['gifts__container'], "container")}>
+                    <header className={styles['gifts__header']}>
+                        <p className={styles['gifts__header-desc']}>Подарки</p>
+                        <button onClick={() => setOpened(!opened)} className={styles['gifts__btn']}>{text}</button>
+                    </header>
+
+                    <div className={cn(styles["gifts__items"],{
+                        [styles['gifts__items--all']] : opened
+                    })}>
+                        {gifts}
+                    </div>
+                </div>
+            </section>
             <section className={styles["tabs"]}>
-                <div className={cn(styles["tabs__container"],"container")}>
-                    <Tabs mixClass={[styles['tabs__items']]}  tabs={['Записи','Избранное', 'Тайтлы']}>
-                        <Cards names={['Записи','Записи', 'Записи', 'Записи','Записи','Записи', 'Записи', 'Записи','Записи']}/>
-                        <Cards names={['Избранное','Избранное', 'Избранное', 'Избранное','Избранное','Избранное', 'Избранное', 'Избранное','Записи']}/>
-                        <Cards names={['Закладки','Закладки', 'Закладки', 'Закладки','Закладки','Закладки', 'Закладки', 'Закладки','Закладки']}/>
+                <div className={cn(styles["tabs__container"], "container")}>
+                    <Tabs mixClass={[styles['tabs__items']]} tabs={['Записи', 'Избранное', 'Закладки', 'Тайтлы']}>
+                        <Cards names={['Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи']} />
+                        <Cards names={['Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Записи']} />
+                        <Cards names={['Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки']} />
+                        <Cards names={['Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы']} />
                     </Tabs>
                 </div>
 
@@ -56,4 +81,4 @@ const ProfileReader : FC = () => {
     )
 }
 
-export default ProfileReader
+export default ProfileAuthor

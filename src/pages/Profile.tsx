@@ -1,10 +1,10 @@
 
-import React from 'react'
+import React,{FC} from 'react'
 import ProfileReader from '../components/ProfileReader'
 
 
 
-const Profile = ({}) => {
+const Profile : FC = () => {
   return <ProfileReader/>
 }
 

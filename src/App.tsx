@@ -11,6 +11,7 @@ import HomePage from './pages/Home';
 import Profile from './pages/Profile';
 import CatalogPage from './pages/Catalog';
 import BlogPage from './pages/Blog';
+import ProfileAuthor from './pages/Author';
 
 
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([{
     {
       path:'/profile',
       element:<Profile/>
+    },
+    {
+      path:'/author',
+      element:<ProfileAuthor/>
     },
     {
       path:'/catalog',

@@ -10,6 +10,7 @@ import LayoutPage from './pages/Layout';
 import HomePage from './pages/Home';
 import Profile from './pages/Profile';
 import CatalogPage from './pages/Catalog';
+import BlogPage from './pages/Blog';
 
 
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([{
     {
       path:'/catalog',
       element:<CatalogPage/>
+    },
+    {
+      path:'/blog',
+      element:<BlogPage/>
     },
   ]
 }])

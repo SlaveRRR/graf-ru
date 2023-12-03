@@ -6,20 +6,12 @@ import { ctx } from '../../../context/contextProvider';
 import { BurgerMenu, Search } from '../../UI/index';
 
 import cn from 'classnames'
+import {routes} from '@/config/routing'
+import { Link,NavLink } from 'react-router-dom';
 import styles from './index.module.scss'
-import { Link } from 'react-router-dom';
 
 
-const navLinks = {
-    'Главная':'/',
-    'Регистрация': '/signup',
-    'Авторизация': '/signin',
-    'Профиль': '/profile',
-    "Каталог": '/catalog',
-    "Популярное": '/popular',
-    'Блог': '/blog',
 
-}
 
 
 
@@ -39,7 +31,7 @@ const Header: FC = () => {
                     </figure>
                     
                     {
-                        Object.entries(navLinks).map(([text, url], i) => <Link className={styles['nav__item']} key={i + 1} to={url}>{text}</Link>)
+                        Object.entries(routes).map(([text, url], i) => <NavLink className={({isActive}) => isActive ? cn(styles['nav__item'],styles['nav__item--active']) : styles['nav__item'] } key={i + 1} to={url}>{text}</NavLink>)
                     }
                     <button className={styles['auth-btn']}>Выйти</button>
                 </nav>

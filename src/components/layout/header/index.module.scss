@@ -44,7 +44,7 @@
         height: 100dvh;
         visibility: hidden;
 
-        transition: visibility .7s linear, left .7s ease-out;
+        transition: visibility .6s linear, left .6s ease-out;
         box-shadow: 2px 0px 10px 7px rgba(0, 0, 0, 0.5);
 
 
@@ -68,7 +68,12 @@
             border-bottom: 1px solid #DFDFDF;
             padding-bottom: .5em;
         }
+        
+        &--active{
+            color:$main-color;
+        }
     }
+    
 }
 
 .signin-link {

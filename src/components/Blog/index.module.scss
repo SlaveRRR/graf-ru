@@ -90,7 +90,12 @@
         background: #FFFFFF;
         @include flex($dir: column);
     }
-
+    &__item-card{
+        border-radius: 10px;
+        padding: 1.1em 1.5em .8em 1.1em;
+        background: #FFFFFF;
+        @include flex($dir: column);
+    }
     &__header {
         align-self: flex-start;
         font-size: .8rem;
@@ -109,6 +114,8 @@
     }
 
     &__link {
+        text-align: center;
+        width: 100%;
         display: block;
         padding: .5em 1em;
         border: 0.89px solid #7A5AF8;
@@ -121,4 +128,15 @@
 
 
     }
+}
+.blog-articles{
+    margin-bottom: 2.5em;
+}
+.articles-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+}
+.filter-section{
+    margin-bottom: 3em;
 }

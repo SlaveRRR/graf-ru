@@ -1,6 +1,6 @@
 
 import React,{FC} from 'react'
-import type { FilterItem } from '@/types/filter.type';
+
 import cn from 'classnames'
 import styles from './index.module.scss'
 type Props = {

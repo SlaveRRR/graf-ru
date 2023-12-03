@@ -1,7 +1,7 @@
 
 
 import React,{FC} from 'react'
-import type { FilterItem } from '@/types/filter.type';
+import type { IFilter,FilterItem } from '@/types/filter.type';
 import cn from 'classnames'
 import styles from './index.module.scss'
 
@@ -9,13 +9,12 @@ type Props = {
     isActive:boolean;
     setActive:() => void;
     header:string;
-    colorClass:string;
+    colorClass:IFilter['colorClass'];
     filters:string[];
-    filterType:FilterItem['type'];
     activeFilters:FilterItem[]
-    handleFilter:(text:FilterItem,e:React.MouseEvent<HTMLInputElement>) => void;
+    handleFilter:(filter:FilterItem,e:React.MouseEvent<HTMLInputElement>) => void;
 }
-const Filter : FC<Props> = ({activeFilters,filterType,colorClass,filters,handleFilter,header,isActive,setActive}) => {
+const Filter : FC<Props> = ({activeFilters,colorClass,filters,handleFilter,header,isActive,setActive}) => {
   return (
     <div className={styles["filter__container"]}>
         <button onClick={() => setActive()} className={styles["filter__header"]}>{header} <svg className={cn({
@@ -33,7 +32,7 @@ const Filter : FC<Props> = ({activeFilters,filterType,colorClass,filters,handleF
 
         <div className={styles["filter__content"]}>
 
-            {isActive && filters.map((text, i) => <label htmlFor={`${text}id`} className={cn(styles["filter__item"], styles[colorClass])}>{text} <input checked={activeFilters.some(({text:t}) => text === t )} onClick={(e) => handleFilter({text, type: filterType}, e)}  id={`${text}id`} type="checkbox" className='myvisuallyhidden' /></label>)}
+            {isActive && filters.map((text, i) => <label htmlFor={`${text}id`} className={cn(styles["filter__item"], styles[`filter__item--${colorClass}`])}>{text} <input checked={activeFilters.some(({text:t}) => text === t )} onClick={(e) => handleFilter({text,colorClass}, e)}  id={`${text}id`} type="checkbox" className='myvisuallyhidden' /></label>)}
         </div>
 
 

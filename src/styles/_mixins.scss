@@ -30,6 +30,48 @@
   }
 }
 
+@mixin filterNames {
+  &--genres {
+    background: #82BCFC;
+  }
+
+  &--tags {
+
+    background: #F590D7;
+  }
+
+  &--viewcounts {
+
+    background: #AF9CFB;
+  }
+
+  &--rating {
+
+    background: #7A5AF8;
+  }
+
+  &--status {
+
+    background: #4D37A5;
+  }
+
+  &--naprav {
+    background: #2E90FA;
+  }
+
+  &--size {
+    background: #2573C8;
+  }
+
+  &--theme{
+    background: #AF9CFB;
+  }
+
+  &--author{
+    background: #7A5AF8;
+  }
+}
+
 @mixin colorFilters {
   &:has(input:checked) {
     color: #FFF;
@@ -60,4 +102,20 @@
     color: #FFF;
     background: #2E90FA;
   }
+
+  &--size:has(input:checked) {
+    color: #FFF;
+    background: #2573C8;
+  }
+
+  &--theme:has(input:checked) {
+    color: #FFF;
+    background: #AF9CFB;
+  }
+
+  &--author:has(input:checked) {
+    color: #FFF;
+    background: #7A5AF8;
+  }
+
 }

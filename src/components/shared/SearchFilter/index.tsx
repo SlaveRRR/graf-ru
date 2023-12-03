@@ -1,20 +1,19 @@
 import React,{FC} from 'react'
 import cn from 'classnames'
 import styles from './index.module.scss'
-import { FilterItem } from '@/types/filter.type';
+import { IFilter,FilterItem } from '@/types/filter.type';
 
 type Props = {
     isActive:boolean;
     setActive:() => void;
     header:string;
-    colorClass:string;
+    colorClass:IFilter['colorClass'];
     filters:string[];
     activeFilters:FilterItem[]
-    filterType:FilterItem['type'];
-    handleFilter:(text:FilterItem,e:React.MouseEvent<HTMLInputElement>) => void;
+    handleFilter:(filter:FilterItem,e:React.MouseEvent<HTMLInputElement>) => void;
 }
 
-const SearchFilter : FC<Props> = ({filterType,isActive,setActive,filters,header,colorClass,activeFilters,handleFilter}) => {
+const SearchFilter : FC<Props> = ({isActive,setActive,filters,header,colorClass,activeFilters,handleFilter}) => {
     
     return (
             <div className={styles["filter"]}>
@@ -35,8 +34,8 @@ const SearchFilter : FC<Props> = ({filterType,isActive,setActive,filters,header,
                 <div className={styles["filter__content"]}>
                     {
                         isActive && <>
-                            <label htmlFor="search-tags" className={cn(styles["filter__search-label"], styles["filter__search-label--color"])}>  <input type="text" id='search-tags' placeholder='Название, автор, персонаж...' className={styles["filter__search-field"]} /></label>
-                            {filters.map((text, i) => <label htmlFor={`${text}id`} className={cn(styles["filter__item"], styles[colorClass])}>{text} <input checked={activeFilters.some(({ text: t }) => text === t)} onClick={(e) => handleFilter({text,type:filterType},e)} id={`${text}id`} type="checkbox" className='myvisuallyhidden' /></label>)}
+                            <label htmlFor="search-tags" className={cn(styles["filter__search-label"], styles[`filter__search-label--${colorClass}`])}>  <input type="text" id='search-tags' placeholder='Название, автор, персонаж...' className={cn(styles["filter__search-field"],styles[`filter__search-field--${colorClass}`])} /></label>
+                            {filters.map((text, i) => <label htmlFor={`${text}id`} className={cn(styles["filter__item"], styles[`filter__item--${colorClass}`])}>{text} <input checked={activeFilters.some(({ text: t }) => text === t)} onClick={(e) => handleFilter({text,colorClass},e)} id={`${text}id`} type="checkbox" className='myvisuallyhidden' /></label>)}
                         </>
                     }
 

@@ -1,5 +1,6 @@
 
 import React, { FC } from 'react'
+import {theme,author,sortSmall} from '@/data/filters.json'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
 import { ArrowLink, Filters } from '../shared'
@@ -29,7 +30,7 @@ const Blog: FC = () => {
                <Cards names={['Записи','Записи', 'Записи', 'Записи','Записи','Записи', 'Записи', 'Записи','Записи','Записи', 'Записи','Записи']}/> */}
                 </div>
             </section>
-            <section className='blog-articles'>
+            <section className={styles['blog-articles']}>
                 <div className="container">
                     <ArrowLink mixClass={[styles['blog__link']]} text='Полезные статьи' url='/articles' />
                     <div className={styles["articles"]}>
@@ -46,9 +47,68 @@ const Blog: FC = () => {
                     </div>
                 </div>
             </section>
-            <section className="filter-section">
+            <section className={styles["filter-section"]}>
                 <div className="container">
-                    <Filters mixClass={[styles["catalog__filter"]]} />
+                    <Filters filters={
+                         [
+                            { text: 'Тема', colorClass: 'theme', filters: theme, filterType: 'default', isActive: false },
+                            { text: 'Автор', colorClass: 'author', filters: author, filterType: 'search', isActive: false },
+                            { text: 'Сортировать', colorClass: '', filters: sortSmall, filterType: 'sort', isActive: false },
+                        ]
+                    } mixClass={[styles["catalog__filter"]]} />
+                     <div className={styles["articles-card"]}>
+                        <div className={styles["articles__item-card"]}>
+                            <header className={styles['articles__header']}>Название статьи</header>
+                            <p className={styles["articles__short"]}>Кратко о статье</p>
+                            <Link className={styles['articles__link']} to={'/article'}>Читать статью</Link>
+                        </div>
+                        <div className={styles["articles__item-card"]}>
+                            <header className={styles['articles__header']}>Название статьи</header>
+                            <p className={styles["articles__short"]}>Кратко о статье</p>
+                            <Link className={styles['articles__link']} to={'/article'}>Читать статью</Link>
+                        </div>
+                        <div className={styles["articles__item-card"]}>
+                            <header className={styles['articles__header']}>Название статьи</header>
+                            <p className={styles["articles__short"]}>Кратко о статье</p>
+                            <Link className={styles['articles__link']} to={'/article'}>Читать статью</Link>
+                        </div>
+                        <div className={styles["articles__item-card"]}>
+                            <header className={styles['articles__header']}>Название статьи</header>
+                            <p className={styles["articles__short"]}>Кратко о статье</p>
+                            <Link className={styles['articles__link']} to={'/article'}>Читать статью</Link>
+                        </div>
+                        <div className={styles["articles__item-card"]}>
+                            <header className={styles['articles__header']}>Название статьи</header>
+                            <p className={styles["articles__short"]}>Кратко о статье</p>
+                            <Link className={styles['articles__link']} to={'/article'}>Читать статью</Link>
+                        </div>
+                        <div className={styles["articles__item-card"]}>
+                            <header className={styles['articles__header']}>Название статьи</header>
+                            <p className={styles["articles__short"]}>Кратко о статье</p>
+                            <Link className={styles['articles__link']} to={'/article'}>Читать статью</Link>
+                        </div>
+                        <div className={styles["articles__item-card"]}>
+                            <header className={styles['articles__header']}>Название статьи</header>
+                            <p className={styles["articles__short"]}>Кратко о статье</p>
+                            <Link className={styles['articles__link']} to={'/article'}>Читать статью</Link>
+                        </div>
+                        <div className={styles["articles__item-card"]}>
+                            <header className={styles['articles__header']}>Название статьи</header>
+                            <p className={styles["articles__short"]}>Кратко о статье</p>
+                            <Link className={styles['articles__link']} to={'/article'}>Читать статью</Link>
+                        </div>
+                        <div className={styles["articles__item-card"]}>
+                            <header className={styles['articles__header']}>Название статьи</header>
+                            <p className={styles["articles__short"]}>Кратко о статье</p>
+                            <Link className={styles['articles__link']} to={'/article'}>Читать статью</Link>
+                        </div>
+                        <div className={styles["articles__item-card"]}>
+                            <header className={styles['articles__header']}>Название статьи</header>
+                            <p className={styles["articles__short"]}>Кратко о статье</p>
+                            <Link className={styles['articles__link']} to={'/article'}>Читать статью</Link>
+                        </div>
+                        
+                    </div>
                 </div>
             </section>
         </>

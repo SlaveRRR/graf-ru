@@ -12,28 +12,8 @@
        
         @include flex($gap:.36em);
         border-radius: 10px;
-        &--genres{
-            background: #82BCFC;
-        }
-        &--tags {
-          
-            background: #F590D7;
-        }
-        &--viewcounts {
-            
-            background: #AF9CFB;
-        }
-        &--rating {
-            
-            background: #7A5AF8;
-        }
-        &--status {
-           
-            background: #4D37A5;
-        }
-        &--naprav{
-            background: #2E90FA;
-        }
+        @include filterNames;
+        
     }
     &__text{
         display: block;

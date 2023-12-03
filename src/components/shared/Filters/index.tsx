@@ -1,7 +1,7 @@
 
 import React, { FC, useState } from 'react'
-import type { FilterItem } from '@/types/filter.type'
-import { focus, genres, tags, rating, status, viewCounts, sort } from '@/data/filters.json'
+import type { IFilter, FilterItem } from '@/types/filter.type'
+
 import cn from 'classnames'
 import styles from './index.module.scss'
 import { MixClass } from '@/types/mixClass.type';
@@ -9,51 +9,43 @@ import { Filter, SearchFilter, SortFilter } from '..'
 
 
 
-interface IFilter {
-    isVisibleGenre: boolean;
-    isVisibleNaprav: boolean;
-    isVisibleTags: boolean;
-    isVisibleSort: boolean;
-    isVisibleStatuses: boolean;
-    isVisibleViewCounts: boolean;
-    isVisibleRating: boolean;
-
-}
-
-
 
 type Props = {
     urlFilter?: string
+    filters: IFilter[]
 } & MixClass
 
-const Filters: FC<Props> = ({ urlFilter, mixClass }) => {
+
+const Filters: FC<Props> = ({ urlFilter, mixClass, filters }) => {
 
     const [isVisibleFilter, setVisible] = useState(false)
-    const [filtersObj, setFiltersObj] = useState<IFilter>({
-        isVisibleGenre: false,
-        isVisibleNaprav: false,
-        isVisibleTags: false,
-        isVisibleSort: false,
-        isVisibleRating: false,
-        isVisibleStatuses: false,
-        isVisibleViewCounts: false,
 
-    })
+    const [visbileFilters, setVisibleFilters] = useState<IFilter[]>(filters)
 
-    const initialState = urlFilter ? [{ text: urlFilter, type: "genres" }] : []
+    const initialState = urlFilter ? [{ text: urlFilter, colorClass: "genres" }] : []
 
-    const [filters, setFilters] = useState<FilterItem[]>(initialState as FilterItem[]);
+    const [activeFilters, setFilters] = useState<FilterItem[]>(initialState as FilterItem[]);
     const [sortText, setSort] = useState<string>();
     const handleClick = () => {
         setVisible(!isVisibleFilter)
     }
-
-    const handleFilter = (filter: FilterItem, event: React.MouseEvent<HTMLInputElement>): void => {
+    console.log(visbileFilters)
+    const handleFilter = (filter: IFilter, event: React.MouseEvent<HTMLInputElement>): void => {
         const { checked } = event.target as HTMLInputElement
 
-        const { text: filterText, type } = filter
+        const { text: filterText, colorClass } = filter
 
-        checked ? setFilters([...filters, { text: filterText, type }]) : setFilters(filters.filter(({ text }) => text !== filterText))
+        checked ? setFilters([...activeFilters, { text: filterText, colorClass }]) : setFilters(activeFilters.filter(({ text }) => text !== filterText))
+    }
+
+    const setActive = (elem) : void => {
+
+        setVisibleFilters(visbileFilters.map((v) => {
+            if (v['text'] === elem['text']) {
+                return { ...v, isActive: !v['isActive'] }
+            }
+            return v
+        }))
     }
     return (
         <div className={cn(styles["filter__container"], ...mixClass)}>
@@ -82,38 +74,63 @@ const Filters: FC<Props> = ({ urlFilter, mixClass }) => {
 
 
                 </button>
-                {isVisibleFilter &&  <button onClick={() => setFilters([])} className={styles['filter__reset-btn']}>Сбросить</button>}
+
+                {isVisibleFilter && <button onClick={() => setFilters([])} className={styles['filter__reset-btn']}>Сбросить</button>}
                 {
-                    filters.length > 0 &&
-                        <div className={styles["aplly-filters"]}>
-                            {filters.map(({ text, type }) => <div className={cn(styles["aplly-filters__item"], styles[`aplly-filters__item--${type}`])}><p className={styles['aplly-filters__text']}>{text}</p><button onClick={() => setFilters(filters.filter(({ text: v }) => v !== text))} className={styles['aplly-filters__btn']}></button></div>)}
-                        </div>
+                    activeFilters.length > 0 &&
+                    <div className={styles["aplly-filters"]}>
+                        {activeFilters.map(({ text, colorClass }) => <div className={cn(styles["aplly-filters__item"], styles[`aplly-filters__item--${colorClass}`])}><p className={styles['aplly-filters__text']}>{text}</p><button onClick={() => setFilters(activeFilters.filter(({ text: v }) => v !== text))} className={styles['aplly-filters__btn']}></button></div>)}
+                    </div>
                 }
 
 
                 {
                     isVisibleFilter && <>
-                        <div className={styles["filter__items"]}>
-                            <Filter colorClass='' isActive={filtersObj.isVisibleGenre} filterType='genres' filters={genres} header='Жанры' handleFilter={handleFilter} activeFilters={filters} setActive={() => setFiltersObj({ ...filtersObj, isVisibleGenre: !filtersObj.isVisibleGenre })} />
+
+                        {...visbileFilters.map((elem) => {
+
+                            switch (elem['filterType']) {
+                                case "default": return <div className={styles["filter__items"]}>
+                                    <Filter handleFilter={handleFilter} setActive={() => setActive(elem)} header={elem['text']} isActive={elem['isActive']} filters={elem['filters']} activeFilters={activeFilters} colorClass={elem['colorClass']} />
+                                </div>
+
+                                case "search": return <div className={styles["filter__items"]}>
+                                    <SearchFilter handleFilter={handleFilter} setActive={() => setActive(elem)} header={elem['text']} isActive={elem['isActive']} filters={elem['filters']} activeFilters={activeFilters} colorClass={elem['colorClass']} />
+                                </div>
+
+                                case "sort": return <div className={styles["filter__items"]}>
+                                    <SortFilter setActive={() => setActive(elem)} header={elem['text']} setSort={setSort} sortText={sortText} isActive={elem['isActive']} filters={elem['filters']} />
+                                </div>
+
+
+                            }
+
+
+                        })}
+                        {/* <div className={styles["filter__items"]}>
+                            <Filter colorClass='' isActive={filtersObj.isVisibleGenre} filterType='genres' filters={genres} header='Жанры' handleFilter={handleFilter} activeFilters={activeFilters} setActive={() => setFiltersObj({ ...filtersObj, isVisibleGenre: !filtersObj.isVisibleGenre })} />
+                        </div> */}
+                        {/* <div className={styles["filter__items"]}>
+                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleNaprav: !filtersObj.isVisibleNaprav })} colorClass={"filter__item--naprav"} isActive={filtersObj.isVisibleNaprav} filterType='naprav' filters={focus} header='Направленность' handleFilter={handleFilter} activeFilters={activeFilters} />
                         </div>
                         <div className={styles["filter__items"]}>
-                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleNaprav: !filtersObj.isVisibleNaprav })} colorClass={"filter__item--naprav"} isActive={filtersObj.isVisibleNaprav} filterType='naprav' filters={focus} header='Направленность' handleFilter={handleFilter} activeFilters={filters} />
+                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleSize: !filtersObj.isVisibleSize })} colorClass={"filter__item--size"} isActive={filtersObj.isVisibleSize} filterType='size' filters={size} header='Размер' handleFilter={handleFilter} activeFilters={activeFilters} />
                         </div>
                         <div className={styles["filter__items"]}>
-                            <SearchFilter filterType='tags' colorClass={"filter__item--tags"} handleFilter={handleFilter} setActive={() => setFiltersObj({ ...filtersObj, isVisibleTags: !filtersObj.isVisibleTags })} filters={tags} isActive={filtersObj.isVisibleTags} activeFilters={filters} header='Включить метки' />
+                            <SearchFilter filterType='tags' colorClass={"filter__item--tags"} handleFilter={handleFilter} setActive={() => setFiltersObj({ ...filtersObj, isVisibleTags: !filtersObj.isVisibleTags })} filters={tags} isActive={filtersObj.isVisibleTags} activeFilters={activeFilters} header='Включить метки' />
                         </div>
                         <div className={styles["filter__items"]}>
-                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleViewCounts: !filtersObj.isVisibleViewCounts })} colorClass={"filter__item--viewcounts"} isActive={filtersObj.isVisibleViewCounts} filterType='viewcounts' filters={viewCounts} header='Количество оценок' handleFilter={handleFilter} activeFilters={filters} />
+                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleViewCounts: !filtersObj.isVisibleViewCounts })} colorClass={"filter__item--viewcounts"} isActive={filtersObj.isVisibleViewCounts} filterType='viewcounts' filters={viewCounts} header='Количество оценок' handleFilter={handleFilter} activeFilters={activeFilters} />
                         </div>
                         <div className={styles["filter__items"]}>
-                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleRating: !filtersObj.isVisibleRating })} colorClass={"filter__item--rating"} isActive={filtersObj.isVisibleRating} filterType='rating' filters={rating} header='Рейтинг' handleFilter={handleFilter} activeFilters={filters} />
+                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleRating: !filtersObj.isVisibleRating })} colorClass={"filter__item--rating"} isActive={filtersObj.isVisibleRating} filterType='rating' filters={rating} header='Рейтинг' handleFilter={handleFilter} activeFilters={activeFilters} />
                         </div>
                         <div className={styles["filter__items"]}>
-                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleStatuses: !filtersObj.isVisibleStatuses })} colorClass={"filter__item--status"} isActive={filtersObj.isVisibleStatuses} filterType='status' filters={status} header='Статус' handleFilter={handleFilter} activeFilters={filters} />
+                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleStatuses: !filtersObj.isVisibleStatuses })} colorClass={"filter__item--status"} isActive={filtersObj.isVisibleStatuses} filterType='status' filters={status} header='Статус' handleFilter={handleFilter} activeFilters={activeFilters} />
                         </div>
                         <div className={styles["filter__items"]}>
                             <SortFilter setSort={setSort} sortText={sortText} setActive={() => setFiltersObj({ ...filtersObj, isVisibleSort: !filtersObj.isVisibleSort })} header='Сортировать' isActive={filtersObj.isVisibleSort} filters={sort} />
-                        </div>
+                        </div> */}
                     </>
                 }
 

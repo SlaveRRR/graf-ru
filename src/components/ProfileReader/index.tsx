@@ -1,12 +1,12 @@
 
 
-import React from 'react'
+import React,{FC} from 'react'
 import cn from 'classnames'
 import styles from './index.module.scss'
 import { Stats } from '../shared'
 import { Cards, Tabs } from '../UI'
 
-const ProfileReader = () => {
+const ProfileReader : FC = () => {
     return (
         <>
             <section className={styles["profile-header"]}>

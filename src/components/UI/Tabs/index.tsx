@@ -14,14 +14,12 @@ type ScrollActive = {
     width: number
 }
 
-type TabsObj = {
-    0: 0,
-    [key: number]: number
-}
+
 
 const containerWidth = 293
 
 const Tabs: FC<Props> = ({ tabs, children, mixClass }) => {
+
     const [numActive, setNumActive] = useState<number>(0)
 
     const [scrollActive, setScrollActive] = useState<ScrollActive>({
@@ -36,9 +34,9 @@ const Tabs: FC<Props> = ({ tabs, children, mixClass }) => {
     const changeActive = (index: number) => {
 
         setNumActive(index)
-        const { left } = document.querySelectorAll(`.${styles["btns__item"]}`).item(index).getBoundingClientRect()
-
-        setScrollActive({ ...scrollActive, width: tabsWidths[index], left: left - tabsWidths[index] / 4 })
+        const { left,right } = document.querySelectorAll(`.${styles["btns__item"]}`).item(index).getBoundingClientRect()
+    
+        setScrollActive({ ...scrollActive, width: tabsWidths[index], left: left - tabsWidths[index] / 4  })
     }
 
 
@@ -47,10 +45,10 @@ const Tabs: FC<Props> = ({ tabs, children, mixClass }) => {
 
         document.querySelectorAll(`.${styles["btns__item"]}`).forEach((v) => widths.push(v.clientWidth))
 
-        setTabsWidths(widths.map(v => v + 5))
+        setTabsWidths(widths.map(v => v + v/4))
 
         const { left } = document.querySelectorAll(`.${styles["btns__item"]}`).item(0).getBoundingClientRect()
-
+       
         setScrollActive({ ...scrollActive, width: widths[0], left: left - widths[0] / 4 })
 
         setNumActive(0)
@@ -59,7 +57,7 @@ const Tabs: FC<Props> = ({ tabs, children, mixClass }) => {
 
     }, [])
 
-    console.log(children)
+    
     return (
         <div className={"tabs"}>
             <div className={cn(styles["tabs__scroller"], ...mixClass)}>

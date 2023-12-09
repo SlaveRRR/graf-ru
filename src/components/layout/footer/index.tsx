@@ -1,7 +1,7 @@
 
 
 import React, { FC } from 'react'
-
+import Logo from '@/assets/logo.svg'
 import styles from './index.module.scss'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
@@ -65,7 +65,14 @@ const Footer: FC = () => {
                 <Link className={styles['links__item']} to='/about'>Агентский договор</Link>
                 </div>
                 <p className={styles['links__contacts']}>Почта для связи: <a className={styles['links__mail']} href="mailto:grafru@gmail.com">почта</a></p>
-                <p className={styles['links__logo']}>Логотип</p>
+                <Link style={{
+                    display:'block',
+                    width:'80px',
+                    margin:"0 auto"
+                }}  to={'/'}><img  style={{
+                    width:'100%',
+                    objectFit:"cover"
+                }} src={Logo} /></Link>
             </div>
         </footer>
     )

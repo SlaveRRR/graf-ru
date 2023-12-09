@@ -28,6 +28,7 @@ const Catalog = (props: Props) => {
                     ]
                 } mixClass={[styles["catalog__filter"]]} urlFilter={searchParams.get('genre') ?? ''} />
                 <Cards names={['Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи']} />
+                <button>Загрузить ещё</button>
             </div>
         </section>
     )

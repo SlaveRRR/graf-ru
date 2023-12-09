@@ -75,7 +75,7 @@
     &__start-btn {
         position: fixed;
         right: 15px;
-        bottom: 10px;
+        bottom: 18px;
         width: 50px;
         height: 50px;
         border: 1px solid #7A5AF8;
@@ -84,10 +84,10 @@
         z-index: 999;
         &-enter {
             opacity: 0;
-            bottom: -10px;
+            bottom: -18px;
         }
         &-enter-active {
-            bottom: 10px;
+            bottom: 18px;
             opacity: 1;
             transition: opacity 200ms, bottom 300ms;
         }
@@ -96,7 +96,7 @@
         }
         &-exit-active {
             opacity: 0;
-            bottom: -10px;
+            bottom: -18px;
             transition: opacity 200ms, bottom 300ms;
         }
     }

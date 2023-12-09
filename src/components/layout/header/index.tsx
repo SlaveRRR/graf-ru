@@ -40,7 +40,7 @@ const Header: FC = () => {
 
 
                 <BurgerMenu isActive={isActive} onClick={handleBurgerClick} />
-                <Link  to={'/'}><img width={45} height={45} style={{
+                <Link  to={'/'}><img width={40} height={40} style={{
                     objectFit: "cover",
                     objectPosition:'center',
                 }} src={Logo} /></Link>

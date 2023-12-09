@@ -29,7 +29,7 @@ const Filters: FC<Props> = ({ urlFilter, mixClass, filters }) => {
     const handleClick = () => {
         setVisible(!isVisibleFilter)
     }
-    console.log(visbileFilters)
+  
     const handleFilter = (filter: IFilter, event: React.MouseEvent<HTMLInputElement>): void => {
         const { checked } = event.target as HTMLInputElement
 
@@ -107,30 +107,7 @@ const Filters: FC<Props> = ({ urlFilter, mixClass, filters }) => {
 
 
                         })}
-                        {/* <div className={styles["filter__items"]}>
-                            <Filter colorClass='' isActive={filtersObj.isVisibleGenre} filterType='genres' filters={genres} header='Жанры' handleFilter={handleFilter} activeFilters={activeFilters} setActive={() => setFiltersObj({ ...filtersObj, isVisibleGenre: !filtersObj.isVisibleGenre })} />
-                        </div> */}
-                        {/* <div className={styles["filter__items"]}>
-                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleNaprav: !filtersObj.isVisibleNaprav })} colorClass={"filter__item--naprav"} isActive={filtersObj.isVisibleNaprav} filterType='naprav' filters={focus} header='Направленность' handleFilter={handleFilter} activeFilters={activeFilters} />
-                        </div>
-                        <div className={styles["filter__items"]}>
-                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleSize: !filtersObj.isVisibleSize })} colorClass={"filter__item--size"} isActive={filtersObj.isVisibleSize} filterType='size' filters={size} header='Размер' handleFilter={handleFilter} activeFilters={activeFilters} />
-                        </div>
-                        <div className={styles["filter__items"]}>
-                            <SearchFilter filterType='tags' colorClass={"filter__item--tags"} handleFilter={handleFilter} setActive={() => setFiltersObj({ ...filtersObj, isVisibleTags: !filtersObj.isVisibleTags })} filters={tags} isActive={filtersObj.isVisibleTags} activeFilters={activeFilters} header='Включить метки' />
-                        </div>
-                        <div className={styles["filter__items"]}>
-                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleViewCounts: !filtersObj.isVisibleViewCounts })} colorClass={"filter__item--viewcounts"} isActive={filtersObj.isVisibleViewCounts} filterType='viewcounts' filters={viewCounts} header='Количество оценок' handleFilter={handleFilter} activeFilters={activeFilters} />
-                        </div>
-                        <div className={styles["filter__items"]}>
-                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleRating: !filtersObj.isVisibleRating })} colorClass={"filter__item--rating"} isActive={filtersObj.isVisibleRating} filterType='rating' filters={rating} header='Рейтинг' handleFilter={handleFilter} activeFilters={activeFilters} />
-                        </div>
-                        <div className={styles["filter__items"]}>
-                            <Filter setActive={() => setFiltersObj({ ...filtersObj, isVisibleStatuses: !filtersObj.isVisibleStatuses })} colorClass={"filter__item--status"} isActive={filtersObj.isVisibleStatuses} filterType='status' filters={status} header='Статус' handleFilter={handleFilter} activeFilters={activeFilters} />
-                        </div>
-                        <div className={styles["filter__items"]}>
-                            <SortFilter setSort={setSort} sortText={sortText} setActive={() => setFiltersObj({ ...filtersObj, isVisibleSort: !filtersObj.isVisibleSort })} header='Сортировать' isActive={filtersObj.isVisibleSort} filters={sort} />
-                        </div> */}
+                      
                     </>
                 }
 

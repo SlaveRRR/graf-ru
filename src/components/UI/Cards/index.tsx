@@ -2,14 +2,16 @@
 
 import React,{FC} from 'react'
 import { Card } from '..'
+import cn from 'classnames';
 import styles from './index.module.scss'
 type Props = {
-    names:string[]
+    names:string[];
+    mixClass?:string[];
 }
 
-const Cards : FC<Props> = ({names}) => {
+const Cards : FC<Props> = ({names,mixClass}) => {
   return (
-    <div className={styles["cards"]}>
+    <div className={cn(styles["cards"],...mixClass)}>
        {names.map(v => <Card text={v} />)} 
     </div>
     

@@ -11,8 +11,8 @@
 }
 
 .links {
-    @include flex($wrap: wrap, $gap: 1.3em);
-    margin-bottom: .2em;
+    @include flex($wrap: wrap, $gap: .8em);
+    margin-bottom: .8em;
 
     &__item {
         position: relative;
@@ -24,6 +24,7 @@
     }
 
     &__contacts {
+        font-size: .8rem;
         width: max-content;
         margin: 0 auto .3em;
     }
@@ -53,7 +54,7 @@
 .dot {
     position: absolute;
     top: 5px;
-    right: -10px;
+    right: -6px;
     display: inline-block;
     width: 2px;
     height: 2px;

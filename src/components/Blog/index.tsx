@@ -26,8 +26,7 @@ const Blog: FC = () => {
                     <ArrowLink mixClass={[styles['blog__link']]} text='Новости' url='/news' />
                     <Slider arr={['Статья №1', 'Статья №2', 'Статья №3']} />
 
-                    {/* 
-               <Cards names={['Записи','Записи', 'Записи', 'Записи','Записи','Записи', 'Записи', 'Записи','Записи','Записи', 'Записи','Записи']}/> */}
+                   
                 </div>
             </section>
             <section className={styles['blog-articles']}>

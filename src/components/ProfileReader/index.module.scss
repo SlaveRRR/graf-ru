@@ -1,8 +1,10 @@
 @use '../../styles/global' as *;
-.profile-header{
+
+.profile-header {
     background: white;
     margin-bottom: 1.1em;
 }
+
 .profile {
     &__container {
         @include flex($dir: column);
@@ -52,22 +54,38 @@
         color: $main-color;
         font-size: .72rem;
         font-weight: 600;
-        @include flex($gap:.5em,$align:end);
+        @include flex($gap: .5em, $align: end);
         line-height: normal;
 
         margin-bottom: 2.5em;
     }
 
-    &__stats{
+    &__stats {
         margin-bottom: 1.9em;
     }
 }
-.tabs{
+
+.tabs {
     background-color: white;
-    &__container{
+
+    &__container {
         padding-top: 1em;
     }
-    &__items{
+
+    &__items {
         margin-bottom: 2em;
+    }
+
+    &__public-btn {
+        display: block;
+        margin:0 auto;
+        border: 1px solid #7A5AF8;
+        border-radius: 560px;
+        color:#7A5AF8;
+        background: transparent;
+        font-size: .78rem;
+        font-weight: 500;
+        line-height: normal;
+        padding: .5em 4.7em;
     }
 }

@@ -68,12 +68,12 @@
             border-bottom: 1px solid #DFDFDF;
             padding-bottom: .5em;
         }
-        
-        &--active{
-            color:$main-color;
+
+        &--active {
+            color: $main-color;
         }
     }
-    
+
 }
 
 .signin-link {
@@ -122,7 +122,7 @@
 .auth-btn {
     display: none;
 
-    @include mediaMax($size:$device-XM){
+    @include mediaMax($size: $device-XM) {
         padding: 0;
         justify-self: start;
         color: #E54545;
@@ -134,3 +134,4 @@
         line-height: normal;
     }
 }
+

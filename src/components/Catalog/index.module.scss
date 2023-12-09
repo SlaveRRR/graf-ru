@@ -1,12 +1,15 @@
 @use '../../styles/global' as *;
+
 .catalog {
-    &__container{
+    &__container {
         padding-top: 1em;
     }
-    &__search-label{
+
+    &__search-label {
         display: block;
         position: relative;
         margin-bottom: 1.1em;
+
         &::before {
             content: url('../../assets/search.svg');
             top: 50%;
@@ -16,6 +19,7 @@
             position: absolute;
         }
     }
+
     &__search-field {
         display: block;
         border: none;
@@ -27,13 +31,13 @@
         font-size: .86rem;
         font-weight: 600;
         line-height: 15px;
-      
+
         background-color: #F2EFFE;
         color: #9991b9;
-        @include focus($outline:1px solid #8a8a8a);
-        
+        @include focus($outline: 1px solid #8a8a8a);
 
-        
+
+
 
         &::placeholder {
             background-color: #F2EFFE;
@@ -44,7 +48,57 @@
         }
     }
 
-    &__filter{
+    &__filter {
         margin-bottom: 1em;
     }
+
+    &__cards {
+        margin-bottom: 1.5em;
+    }
+
+    &__load-more {
+        display: block;
+        margin: 0 auto;
+        background: transparent;
+        border: 1px solid #7A5AF8;
+        border-radius: 250px;
+        padding: .6em 1em;
+        color: #7A5AF8;
+        text-align: center;
+
+        font-size: .7em;
+
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    &__start-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 10px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #7A5AF8;
+        border-radius: 250px;
+        background-color: #7A5AF8;
+        z-index: 999;
+        &-enter {
+            opacity: 0;
+            bottom: -10px;
+        }
+        &-enter-active {
+            bottom: 10px;
+            opacity: 1;
+            transition: opacity 200ms, bottom 300ms;
+        }
+        &-exit {
+            opacity: 1;
+        }
+        &-exit-active {
+            opacity: 0;
+            bottom: -10px;
+            transition: opacity 200ms, bottom 300ms;
+        }
+    }
+
 }

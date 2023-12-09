@@ -5,13 +5,14 @@ import cn from 'classnames'
 import styles from './index.module.scss'
 import { Stats } from '../shared'
 import { Cards, Tabs } from '../UI'
+import Post from '../Post'
 
 const ProfileAuthor: FC = () => {
-    const gifts = [<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>,<img src='./gifts.png' className={styles["gifts__item"]}/>]
+    const gifts = [<img src='./gifts.png' className={styles["gifts__item"]} />, <img src='./gifts.png' className={styles["gifts__item"]} />, <img src='./gifts.png' className={styles["gifts__item"]} />, <img src='./gifts.png' className={styles["gifts__item"]} />, <img src='./gifts.png' className={styles["gifts__item"]} />, <img src='./gifts.png' className={styles["gifts__item"]} />, <img src='./gifts.png' className={styles["gifts__item"]} />, <img src='./gifts.png' className={styles["gifts__item"]} />]
 
-    const [opened,setOpened] = useState<boolean>(false)
+    const [opened, setOpened] = useState<boolean>(false)
 
-    const text = opened ? 'Скрыть' :  'Показать всё' 
+    const text = opened ? 'Скрыть' : 'Показать всё'
 
     return (
         <>
@@ -58,8 +59,8 @@ const ProfileAuthor: FC = () => {
                         <button onClick={() => setOpened(!opened)} className={styles['gifts__btn']}>{text}</button>
                     </header>
 
-                    <div className={cn(styles["gifts__items"],{
-                        [styles['gifts__items--all']] : opened
+                    <div className={cn(styles["gifts__items"], {
+                        [styles['gifts__items--all']]: opened
                     })}>
                         {gifts}
                     </div>
@@ -68,14 +69,17 @@ const ProfileAuthor: FC = () => {
             <section className={styles["tabs"]}>
                 <div className={cn(styles["tabs__container"], "container")}>
                     <Tabs mixClass={[styles['tabs__items']]} tabs={['Записи', 'Избранное', 'Закладки', 'Тайтлы']}>
-                        <Cards names={['Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи']} />
-                        <Cards names={['Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Записи']} />
-                        <Cards names={['Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки']} />
-                        <Cards names={['Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы', 'Тайтлы']} />
-                    </Tabs>
-                </div>
+                        <Post/>
+                        <Cards mixClass={[]} names={['Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Избранное', 'Записи']} />
+                        <Cards mixClass={[]} names={['Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки', 'Закладки']} />
+                        <>
+                            <button className={styles['tabs__public-btn']}>Опубликовать</button>
+                            <Cards mixClass={[]} names={['Название', 'Название', 'Название', 'Название', 'Название', 'Название', 'Название', 'Название', 'Название']} />
+                        </>
+            </Tabs>
+        </div >
 
-            </section>
+            </section >
         </>
 
     )

@@ -10,4 +10,5 @@ import Loader from "./Loader";
 import Tabs from "./Tabs";
 import Card from "./Card";
 import Cards from "./Cards";
+
 export { BurgerMenu,Search, Logo,Loader,Badge,Slider,Button,Card,Cards, RouterLoader,Tabs}

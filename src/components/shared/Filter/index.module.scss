@@ -51,7 +51,6 @@
 
     &__item {
         display: block;
-
         width: max-content;
         min-width: 38px;
         padding: .6em .98em;
@@ -63,7 +62,6 @@
         border-radius: 10px;
         background: white;
         transition: all .3s;
-
         @include colorFilters;
     }
 

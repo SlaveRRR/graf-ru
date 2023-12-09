@@ -75,6 +75,19 @@
     &__items {
         margin-bottom: 2em;
     }
+    &__public-btn{
+        display: block;
+        margin:0 auto 1.8em;
+        border: 1px solid #7A5AF8;
+        border-radius: 560px;
+        color:#7A5AF8;
+        background: transparent;
+        font-size: .78rem;
+        font-weight: 500;
+        line-height: normal;
+        padding: .5em 4.7em;
+        
+    }
 }
 
 .gifts {

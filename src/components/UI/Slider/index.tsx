@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { Pagination,Autoplay } from 'swiper/modules';
 
 type Props = {
     arr: string[]
@@ -18,38 +18,44 @@ const Slider: FC<Props> = ({ arr }) => {
         <>
             <div className={styles["slider"]}>
                 <Swiper
-                slidesPerView={1}
-                spaceBetween={50}
-                loop={true}
-                
-                pagination={
-                    {
-                        renderBullet: function (index, className) {
-                            return '<span class="' + className + '">'+''+'</span>';
-                          },
+
+                    slidesPerView={1}
+                    spaceBetween={50}
+                    loop={true}
+                    autoplay={{
+
+                        delay: 3500,
+                        disableOnInteraction: false,
+
+                    }}
+                    pagination={
+                        {
+                            renderBullet: function (index, className) {
+                                return '<span class="' + className + '">' + '' + '</span>';
+                            },
+                        }
                     }
-                }
-                
-                style={{
-                    
-                    //@ts-ignore
-                    
-                    "--swiper-pagination-color":"#7A5AF8",
-                    "--swiper-pagination-bullet-inactive-color": "#DFDFDF",
-                    "--swiper-pagination-top":"125px",
-                    "--swiper-pagination-bullet-inactive-opacity": "1",
-                    "--swiper-pagination-bullet-size": "6px",
-                    "--swiper-pagination-bullet-horizontal-gap": "3px",
-                    "paddingBottom":'50px'
-                }}
-                modules={[Pagination]}
+
+                    style={{
+
+                        //@ts-ignore
+
+                        "--swiper-pagination-color": "#7A5AF8",
+                        "--swiper-pagination-bullet-inactive-color": "#DFDFDF",
+                        "--swiper-pagination-top": "125px",
+                        "--swiper-pagination-bullet-inactive-opacity": "1",
+                        "--swiper-pagination-bullet-size": "6px",
+                        "--swiper-pagination-bullet-horizontal-gap": "3px",
+                        "paddingBottom": '50px'
+                    }}
+                    modules={[Pagination,Autoplay ]}
                 >
                     {arr.map((text, ind) =>
 
-                        <SwiperSlide 
-                        key={ind}
-                        className={styles['slide']}>
-                        
+                        <SwiperSlide
+                            key={ind}
+                            className={styles['slide']}>
+
                             <div className={styles['slide__text-container']}>
                                 <p className={styles['slide__text']}>{text}</p>
                                 <Link className={styles['slide__link']} to={'/article'}>Читать подробнее</Link>
@@ -58,9 +64,9 @@ const Slider: FC<Props> = ({ arr }) => {
 
 
                         </SwiperSlide>)}
-                         
+
                 </Swiper>
-                    
+
             </div >
 
         </>

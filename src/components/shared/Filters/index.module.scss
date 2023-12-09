@@ -3,7 +3,7 @@
 .aplly-filters {
     @include flex($justify:flex-start,$gap:.2em);
     overflow-x: scroll;
-
+    margin-bottom: 1em;
     &::-webkit-scrollbar {
         width: 0;
     }

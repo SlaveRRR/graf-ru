@@ -7,9 +7,9 @@ import { Filters } from '../shared'
 import { Cards } from '../UI'
 import { useSearchParams } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group'
-type Props = {}
 
-const Catalog = (props: Props) => {
+
+const Catalog : FC = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [scroll, setScroll] = useState<number>(0)
     const handleClick = () => {
@@ -48,7 +48,7 @@ const Catalog = (props: Props) => {
                 } mixClass={[styles["catalog__filter"]]} urlFilter={searchParams.get('genre') ?? ''} />
                 <Cards mixClass={[styles['catalog__cards']]} names={['Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи', 'Записи']} />
                 <button className={styles['catalog__load-more']}>Загрузить ещё</button>
-                <CSSTransition timeout={200} in={scroll > 100} unmountOnExit classNames={{
+                <CSSTransition timeout={200} in={scroll > 80} unmountOnExit classNames={{
                      enter:styles['catalog__start-btn-enter'],
                      enterActive:styles['catalog__start-btn-enter-active'],
                      exit:styles['catalog__start-btn-exit'],

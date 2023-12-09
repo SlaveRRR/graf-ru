@@ -6,7 +6,7 @@ import cn from 'classnames';
 import styles from './index.module.scss'
 type Props = {
     names:string[];
-    mixClass?:string[];
+    mixClass:string[];
 }
 
 const Cards : FC<Props> = ({names,mixClass}) => {

@@ -8,7 +8,7 @@ const Error: FC = () => {
   return (
     <Layout>
       <div className="container">
-        <h2 style={{paddingTop:'2em',fontWeight:'bold',fontSize:'1.5rem',textAlign:'center'}}>Страница не найден</h2>
+        <h2 style={{paddingTop:'2em',fontWeight:'bold',fontSize:'1.5rem',textAlign:'center'}}>Страница не найдена</h2>
       </div>
 
       <ScrollToTop />

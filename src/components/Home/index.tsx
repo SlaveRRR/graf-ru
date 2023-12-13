@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 
 import cn from 'classnames';
 import { ArrowLink } from '../shared/index';
-import { Badge, Button, Slider,Card } from '../UI';
+import { Badge, Button, SliderArticles,Card } from '../UI';
 import { Link } from 'react-router-dom';
 
 type Props = {}
@@ -74,7 +74,7 @@ const Home = (props: Props) => {
             <section className={styles["slider-section"]}>
                 <div className={cn(styles['slider-container'],"container")}>
                 <ArrowLink mixClass={[styles['slider-container__link']]} text='Новости' url='/news' />
-                <Slider arr={['Статья №1','Статья №2','Статья №3']}/>
+                <SliderArticles arr={['Статья №1','Статья №2','Статья №3']}/>
                 </div>
             </section>
             <section className="article-section">

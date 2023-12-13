@@ -3,12 +3,19 @@ import Search from "./Search";
 import Logo from './Logo'
 
 import Badge from "./Badge";
-import Slider from './Slider';
 import Button from "./Button";
+
+import SliderArticles from './SliderArticles';
+import SliderPreview from "./SliderPreview";
+
 import RouterLoader from "./RouterLoader";
 import Loader from "./Loader";
+
 import Tabs from "./Tabs";
+
 import Card from "./Card";
 import Cards from "./Cards";
 
-export { BurgerMenu,Search, Logo,Loader,Badge,Slider,Button,Card,Cards, RouterLoader,Tabs}
+import Chapters from "./Chapters";
+
+export { BurgerMenu,Search, Logo,Loader,Badge,SliderArticles,Button,Card,Cards, RouterLoader,Tabs,SliderPreview,Chapters}

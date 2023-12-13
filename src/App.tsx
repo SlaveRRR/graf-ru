@@ -12,6 +12,7 @@ import Profile from './pages/Profile';
 import CatalogPage from './pages/Catalog';
 import BlogPage from './pages/Blog';
 import ProfileAuthor from './pages/Author';
+import ComicsPage from './pages/ComicsPage';
 
 
 
@@ -48,6 +49,10 @@ const router = createBrowserRouter([{
     {
       path:'/blog',
       element:<BlogPage/>
+    },
+    {
+      path:'/preview',
+      element:<ComicsPage/>
     },
   ]
 }])

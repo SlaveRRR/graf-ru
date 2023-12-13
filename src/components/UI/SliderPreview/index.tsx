@@ -1,26 +1,28 @@
 
 import React, { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import cn from 'classnames'
 import 'swiper/scss'
 import styles from './index.module.scss';
-import { Link } from 'react-router-dom';
+
 
 
 import 'swiper/css/pagination';
-import { Pagination,Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 type Props = {
-    arr: string[]
+    items: string[];
+    mixClass:string[]
 }
 
-const Slider: FC<Props> = ({ arr }) => {
+const SliderPreview: FC<Props> = ({ items,mixClass }) => {
     return (
         <>
-            <div className={styles["slider"]}>
+            <div className={cn(styles["slider"],...mixClass)}>
                 <Swiper
 
                     slidesPerView={1}
-                    spaceBetween={50}
+                    spaceBetween={20}
                     loop={true}
                     autoplay={{
 
@@ -41,26 +43,21 @@ const Slider: FC<Props> = ({ arr }) => {
                         //@ts-ignore
 
                         "--swiper-pagination-color": "#7A5AF8",
-                        "--swiper-pagination-bullet-inactive-color": "#DFDFDF",
-                        "--swiper-pagination-top": "125px",
+                        "--swiper-pagination-bullet-inactive-color": "#b4b2b2",
                         "--swiper-pagination-bullet-inactive-opacity": "1",
                         "--swiper-pagination-bullet-size": "6px",
                         "--swiper-pagination-bullet-horizontal-gap": "3px",
-                        "paddingBottom": '50px'
+                        "maxWidth":"100%"
                     }}
-                    modules={[Pagination,Autoplay ]}
+                    modules={[Pagination, Autoplay]}
                 >
-                    {arr.map((text, ind) =>
+                    {items.map((src, ind) =>
 
                         <SwiperSlide
                             key={ind}
                             className={styles['slide']}>
 
-                            <div className={styles['slide__text-container']}>
-                                <p className={styles['slide__text']}>{text}</p>
-                                <Link className={styles['slide__link']} to={'/article'}>Читать подробнее</Link>
-                            </div>
-                            <div className={styles['slide__img']}></div>
+                            <img className={styles['slide__img']} src={src} alt="comics" />
 
 
                         </SwiperSlide>)}
@@ -75,4 +72,4 @@ const Slider: FC<Props> = ({ arr }) => {
     )
 }
 
-export default Slider
+export default SliderPreview

@@ -1,6 +1,6 @@
 
 import React, { FC, useEffect, useState, useCallback } from 'react'
-import { focus, genres, tags, rating, status, viewCounts, sort, size } from '@/data/filters.json'
+import { focus, genres, tags, rating, status, viewCounts, sort, size } from '@/data/data.json'
 import cn from 'classnames'
 import styles from './index.module.scss'
 import { Filters } from '../shared'

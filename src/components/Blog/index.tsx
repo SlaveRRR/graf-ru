@@ -1,10 +1,10 @@
 
 import React, { FC } from 'react'
-import {theme,author,sortSmall} from '@/data/filters.json'
+import {theme,author,sortSmall} from '@/data/data.json'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
 import { ArrowLink, Filters } from '../shared'
-import { Cards, Slider } from '../UI'
+import { Cards, SliderArticles } from '../UI'
 import { routes } from '@/config/routing'
 import styles from './index.module.scss'
 
@@ -24,7 +24,7 @@ const Blog: FC = () => {
                     </header>
 
                     <ArrowLink mixClass={[styles['blog__link']]} text='Новости' url='/news' />
-                    <Slider arr={['Статья №1', 'Статья №2', 'Статья №3']} />
+                    <SliderArticles arr={['Статья №1', 'Статья №2', 'Статья №3']} />
 
                    
                 </div>

@@ -18,4 +18,6 @@ import Cards from "./Cards";
 
 import Chapters from "./Chapters";
 
-export { BurgerMenu,Search, Logo,Loader,Badge,SliderArticles,Button,Card,Cards, RouterLoader,Tabs,SliderPreview,Chapters}
+import Switch from "./Switch";
+
+export { BurgerMenu,Search, Logo,Loader,Badge,SliderArticles,Button,Card,Cards, RouterLoader,Tabs,SliderPreview,Chapters,Switch}

@@ -119,6 +119,7 @@
 }
 
 .novelty-cards {
+    overflow: hidden;
     @include flex($gap: .71em);
 }
 

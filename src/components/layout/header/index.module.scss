@@ -9,13 +9,12 @@
 
     padding-top: .93em;
     padding-bottom: 1em;
-    background: #F8F8F8;
+    background: #F6F6F6;
     @include flex($justify: space-between);
 
-    @include mediaMin($size: $device-XM) {
-        padding-top: 1.5em;
-        padding-bottom: 1.5em;
-
+    @include mediaMin($size: $device-M) {
+        padding-top: 0;
+        padding-bottom: 0;
 
     }
 }
@@ -26,8 +25,9 @@
 
     @include flex($gap: 1em);
 
+    
 
-    @include mediaMax($size: $device-XM) {
+    @include mediaMax($size: $device-M) {
         padding-top: 1em;
         padding-left: 1em;
         display: grid;
@@ -112,7 +112,6 @@
             font-size: .86rem;
             font-style: normal;
             font-weight: 600;
-            line-height: normal;
             line-height: normal;
         }
     }

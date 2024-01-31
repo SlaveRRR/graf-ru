@@ -6,7 +6,7 @@
     background: transparent;
    
 
-    @include mediaMin($size: $device-XM) {
+    @include mediaMin($size: $device-M) {
         display: none;
     }
     

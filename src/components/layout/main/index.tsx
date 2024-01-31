@@ -5,7 +5,7 @@ import { ctx } from '../../../context/contextProvider'
 type Props = {
     children:React.ReactNode
 }
-ctx
+
 
 const Main : FC<Props> = ({children}) => {
     const { burger: [isActive, setActive] } = useContext(ctx);

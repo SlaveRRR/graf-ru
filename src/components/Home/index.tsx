@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './index.module.scss';
 
@@ -8,9 +8,9 @@ import { ArrowLink } from '../shared/index';
 import { Badge, Button, SliderArticles,Card } from '../UI';
 import { Link } from 'react-router-dom';
 
-type Props = {}
 
-const Home = (props: Props) => {
+
+const Home : FC = () => {
     return (
         <>
             <section className={styles['image-section']}>
@@ -41,9 +41,12 @@ const Home = (props: Props) => {
                     <ArrowLink mixClass={[styles['popular-container__link']]} text='Популярные' url='/popular' />
 
                     <div className={styles["popular-cards"]}>
-                        <Card text='Название' />
-                        <Card text='Название' />
-                        <Card text='Название' />
+                        <Card mixClass={[styles['cards-comics']]} text='Название' />
+                        <Card mixClass={[styles['cards-comics']]} text='Название' />
+                        <Card mixClass={[styles['cards-comics']]} text='Название' />
+                        <Card mixClass={[styles['cards-comics']]} text='Название' />
+                        <Card mixClass={[styles['cards-comics']]} text='Название' />
+                        <Card mixClass={[styles['cards-comics']]} text='Название' />
                     </div>
 
                 </div>

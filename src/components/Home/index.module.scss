@@ -98,7 +98,8 @@
 }
 
 .popular-cards {
-    @include flex($gap: .71em);
+    overflow: hidden;
+    @include flex($gap: .71em,$justify:flex-start);
 }
 
 .novelty-section {
@@ -193,4 +194,9 @@
 
 
     }
+}
+
+.cards-comics{
+    width: clamp(90px,12vw,182px);
+    height: clamp(115px,22vh,219px);
 }

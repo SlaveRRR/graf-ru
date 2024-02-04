@@ -35,7 +35,6 @@
         grid-template-rows: repeat(fit);
         grid-auto-rows: repeat(auto-fit, min-content);
         row-gap: 0;
-        // @include flex($dir: column, $gap: 1em, $justify: flex-start, $align: flex-start);
         position: fixed;
         background-color: #FFFFFF;
         top: 0;
@@ -90,7 +89,7 @@
 
 
 
-    @include mediaMin($size: $device-XM) {
+    @include mediaMin($size: $device-M) {
         display: block;
     }
 
@@ -99,7 +98,7 @@
 .avatar {
     display: none;
 
-    @include mediaMax($size: $device-XM) {
+    @include mediaMax($size: $device-M) {
         @include flex($gap: 1.2em);
 
         &__img {

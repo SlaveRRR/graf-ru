@@ -1,3 +1,5 @@
+@use '../../../styles/global' as *;
+
 .switch {
     width: 50px;
     height: 23px;
@@ -8,24 +10,29 @@
     vertical-align: middle;
     border: 0;
     border-radius: 100px;
-    cursor: pointer;
+    
     transition: all .2s;
     user-select: none;
 
-    &--checked{
-            background: #2D283E;
-            .switch-inner-checked{
-                transform: translateX(0);
-            }
-            .switch-inner-unchecked{
-                transform: translateX(100%);
-            }
+    @include addCursorElement($device-M);
+
+    &--checked {
+        background: #2D283E;
+
+        .switch-inner-checked {
+            transform: translateX(0);
+        }
+
+        .switch-inner-unchecked {
+            transform: translateX(100%);
+        }
     }
 
-  
-    &--checked .switch-handle{
+
+    &--checked .switch-handle {
         inset-inline-start: 28px;
     }
+
     &--checked .switch-handle::before {
         background-color: white;
     }

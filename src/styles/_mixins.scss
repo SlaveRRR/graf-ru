@@ -63,11 +63,11 @@
     background: #2573C8;
   }
 
-  &--theme{
+  &--theme {
     background: #AF9CFB;
   }
 
-  &--author{
+  &--author {
     background: #7A5AF8;
   }
 }
@@ -118,4 +118,10 @@
     background: #7A5AF8;
   }
 
+}
+
+@mixin addCursorElement($size) {
+  @media (min-width:$size) {
+    cursor: pointer;
+  }
 }

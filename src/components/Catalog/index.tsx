@@ -10,7 +10,7 @@ import { CSSTransition } from 'react-transition-group'
 
 
 const Catalog : FC = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const [scroll, setScroll] = useState<number>(0)
     const handleClick = () => {
         window.scrollTo({
@@ -56,8 +56,8 @@ const Catalog : FC = () => {
                 }}>
                     <button onClick={() => handleClick()} className={styles['catalog__start-btn']}>
                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 7.79169L18 28.2084" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M28.209 18L18.0007 7.79169L7.79232 18" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M18 7.79169L18 28.2084" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M28.209 18L18.0007 7.79169L7.79232 18" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
 
                     </button>

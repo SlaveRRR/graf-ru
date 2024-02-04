@@ -17,7 +17,6 @@ type Props = {
 
 const SliderPreview: FC<Props> = ({ items,mixClass }) => {
     return (
-        <>
             <div className={cn(styles["slider"],...mixClass)}>
                 <Swiper
 
@@ -65,8 +64,6 @@ const SliderPreview: FC<Props> = ({ items,mixClass }) => {
                 </Swiper>
 
             </div >
-
-        </>
 
 
     )

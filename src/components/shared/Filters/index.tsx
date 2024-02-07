@@ -58,7 +58,7 @@ const Filters: FC<Props> = ({ urlFilter, mixClass, filters }) => {
                     <circle cx="6.5" cy="12" r="2" stroke="black" stroke-width="1.3" />
                     <circle cx="11.5" cy="5" r="2" stroke="black" stroke-width="1.3" />
                 </svg>
-                    Фильтр
+                    <p className={styles["filter__p"]}>Фильтр</p>
                     <svg className={cn({
                         [styles['filter__arrow-icon--active']]: isVisibleFilter
                     })} width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,14 +74,6 @@ const Filters: FC<Props> = ({ urlFilter, mixClass, filters }) => {
 
 
                 </button>
-
-                {isVisibleFilter && <button onClick={() => setFilters([])} className={styles['filter__reset-btn']}>Сбросить</button>}
-                {
-                    activeFilters.length > 0 &&
-                    <div className={styles["aplly-filters"]}>
-                        {activeFilters.map(({ text, colorClass }) => <div className={cn(styles["aplly-filters__item"], styles[`aplly-filters__item--${colorClass}`])}><p className={styles['aplly-filters__text']}>{text}</p><button onClick={() => setFilters(activeFilters.filter(({ text: v }) => v !== text))} className={styles['aplly-filters__btn']}></button></div>)}
-                    </div>
-                }
 
 
                 {
@@ -110,12 +102,16 @@ const Filters: FC<Props> = ({ urlFilter, mixClass, filters }) => {
                       
                     </>
                 }
-
-
-
-
-
-
+            <div className={styles['filter__btn-container']}>
+                {isVisibleFilter && <button onClick={() => setFilters([])} className={styles['filter__apply-btn']}>Применить</button>} 
+                {isVisibleFilter && <button onClick={() => setFilters([])} className={styles['filter__reset-btn']}>Сбросить</button>} 
+            </div>
+                {
+                    activeFilters.length > 0 &&
+                    <div className={styles["aplly-filters"]}>
+                        {activeFilters.map(({ text, colorClass }) => <div className={cn(styles["aplly-filters__item"], styles[`aplly-filters__item--${colorClass}`])}><p className={styles['aplly-filters__text']}>{text}</p><button onClick={() => setFilters(activeFilters.filter(({ text: v }) => v !== text))} className={styles['aplly-filters__btn']}></button></div>)}
+                    </div>
+                }
             </div>
 
 

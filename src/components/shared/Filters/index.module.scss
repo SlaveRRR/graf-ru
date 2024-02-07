@@ -17,7 +17,6 @@
     }
     &__text{
         display: block;
-
         width: max-content;
         min-width: 38px;
         color: white;
@@ -37,25 +36,44 @@
 }
 
 .filter {
+    &__container{
+        background-color: white;
+        border-radius: 10px;
+        width: 30%;
+        height: 50%;
+        // max-width: 30%;
+        // max-height: 100%;
+        padding: 1rem;
+    }
+    &__btn-container{
+        @include flex($gap:.5rem);
+    }
     &__reset-btn{
         display: block;
-        background: $main-color;
-        color: white;
+        background: white;
+        color:$main-color;
+        font-weight: 500;
+        border: 1.5px solid $main-color;
+        border-radius: 20px;
+        padding: .5em .5em;
+    }
+    &__apply-btn{
         border: none;
-        border-radius: 10px;
-        padding: .5em 1em;
-        margin: 0 auto 1.5em;
+        border-radius: 562px;
+        background-color: $main-color;
+        color: white;
+        font-weight: 500;
+        padding: .5em .5em;
     }
     &__button {
         @include flex($gap: .3em);
         border: none;
         background-color: transparent;
         color: #000;
-        font-size: .86rem;
+        font-size: .9rem;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
-        margin: 0 auto 1em;
     }
 
     &__arrow-icon {
@@ -65,7 +83,5 @@
             transform: rotateX(180deg);
         }
     }
-    &__items {
-        margin-bottom: .8em;
-    }
+    
 }

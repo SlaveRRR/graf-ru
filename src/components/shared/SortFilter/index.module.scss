@@ -11,15 +11,15 @@
 
     &__container {
 
-        @include flex($dir: column);
-
+        @include flex($dir: column, $align: start);
+        margin-bottom: 1rem;
     }
 
     &__header {
         border: none;
         background-color: transparent;
-        margin: 0 auto 1.4em;
         width: max-content;
+        margin: 1rem 0;
         color: #000;
         font-size: .86rem;
         font-weight: 600;

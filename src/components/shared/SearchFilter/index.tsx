@@ -34,7 +34,7 @@ const SearchFilter : FC<Props> = ({isActive,setActive,filters,header,colorClass,
                 <div className={styles["filter__content"]}>
                     {
                         isActive && <>
-                            <label htmlFor="search-tags" className={cn(styles["filter__search-label"], styles[`filter__search-label--${colorClass}`])}>  <input type="text" id='search-tags' placeholder='Название, автор, персонаж...' className={cn(styles["filter__search-field"],styles[`filter__search-field--${colorClass}`])} /></label>
+                            <label htmlFor="search-tags" className={cn(styles["filter__search-label"], styles[`filter__search-label--${colorClass}`])}>  <input type="text" id='search-tags' placeholder='Поиск автора...' className={cn(styles["filter__search-field"],styles[`filter__search-field--${colorClass}`])} /></label>
                             {filters.map((text, i) => <label htmlFor={`${text}id`} className={cn(styles["filter__item"], styles[`filter__item--${colorClass}`])}>{text} <input checked={activeFilters.some(({ text: t }) => text === t)} onClick={(e) => handleFilter({text,colorClass},e)} id={`${text}id`} type="checkbox" className='myvisuallyhidden' /></label>)}
                         </>
                     }

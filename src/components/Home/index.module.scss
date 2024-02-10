@@ -3,16 +3,18 @@
 .image-section {
     background: #FFFFFF;
     margin-bottom: 1.1em;
-    padding-top: 5.5em;
+    padding-top: 1.2em;
     padding-bottom: 1.5em;
     overflow: hidden;
     @include flex($wrap: nowrap, $gap: .4em);
 
     @include mediaMin($device-M) {
+        margin-bottom: 3.5em;
         padding-top: 5.3em;
         gap: 1.75em;
-        padding-left: 5em;
-        padding-right: 5em;
+        padding-bottom: 5.4em;
+        padding-left: clamp(5em, 12.587vw - 1.905em, 15.357em);
+        padding-right: clamp(5em, 2.691vw + 3.524em, 7.214em);
     }
 }
 
@@ -186,25 +188,6 @@
         height: 412px;
         width: 85%;
     }
-
-    // &__item:nth-child(6) {
-    //     align-self: start;
-    //     grid-column: 3/4;
-    //     grid-row: 3;
-    //     max-width: 230px;
-    //     height: 154px;
-    //     width: 100%;
-    // }
-
-    // &__item:nth-child(7) {
-    //     grid-column: 4/6;
-    //     grid-row: 3;
-    //     align-self: start;
-    //     justify-self: start;
-    //     max-width: 305px;
-    //     height: 124px;
-    //     width: 100%;
-    // }
 }
 
 .cards-subgrid {
@@ -276,18 +259,33 @@
 
 .popular-section {
     margin-bottom: 1em;
+
+    @include mediaMin($device-M) {
+        margin-bottom: 3.5em;
+    }
 }
 
 .popular-container {
     padding-top: .78em;
     padding-bottom: 1.43em;
-
     background: #FFFFFF;
+
 
     &__link {
         margin: 0 0 .9em;
+
+        @include mediaMin($device-M) {
+            margin: 0 0 2.2em;
+        }
+    }
+
+    @include mediaMin($device-M) {
+        padding-top: 2.2em;
+        padding-bottom: 5.3em;
     }
 }
+
+
 
 .popular-cards {
 
@@ -310,6 +308,10 @@
 .novelty-section {
 
     margin-bottom: 1.9em;
+
+    @include mediaMin($device-M) {
+        margin-bottom: 6em;
+    }
 }
 
 .novelty-container {
@@ -320,8 +322,16 @@
 
     &__link {
         margin: 0 0 .9em;
+
+        @include mediaMin($device-M) {
+            margin: 0 0 2.2em;
+        }
     }
 
+    @include mediaMin($device-M) {
+        padding-top: 2.2em;
+        padding-bottom: 5.3em;
+    }
 
 }
 
@@ -345,6 +355,11 @@
 .genre-section {
 
     margin-bottom: 3em;
+
+    @include mediaMin($device-M) {
+        margin-bottom: 9.2em;
+        padding: 0 clamp(5rem, 19.965vw - 5.952rem, 21.429rem);
+    }
 }
 
 .genre-container {
@@ -352,12 +367,31 @@
 
     &__link {
         margin: 0 0 .9em 1.1em;
+        @include mediaMin($device-M) {
+            margin-bottom: 3.5em;
+        }
+    }
+
+    &__badge {
+        @include mediaMin($device-M) {
+            padding-top: 1.8em;
+            padding-left: 1.4em;
+            padding-right: 0;
+            height: clamp(5.714rem, 10.59vw - 0.095rem, 14.429rem);
+            width: clamp(8.429rem, 15.712vw - 0.19rem, 21.357rem);
+        }
     }
 }
 
 .genres {
     padding: .0.9375em;
     @include flex($gap: .72em, $justify: flex-start);
+
+    @include mediaMin($device-M) {
+        flex-wrap: wrap;
+        gap: 2.14em;
+    }
+
     overflow-x: scroll;
     scroll-behavior: smooth;
 
@@ -366,13 +400,15 @@
     }
 }
 
+.slider-container {
+    overflow: hidden;
 
+    &__link {
+        margin-bottom: .9em;
 
-.slider-container__link {
-    margin-bottom: .9em;
-
-    @include mediaMin($device-M){
-        margin-bottom: 2em;
+        @include mediaMin($device-M) {
+            margin-bottom: 2em;
+        }
     }
 }
 
@@ -388,68 +424,70 @@
 
     @include flex($gap: 1em, $justify: flex-start);
 
+    @include mediaMin($size: $device-M) {
+        gap: 2.42em;
+    }
+
+    @include mediaMin($size: $device-XXL) {
+        justify-content: center;
+    }
+
+
     &__item {
 
-        min-width: 140px;
-        max-width: 348px;
-        width: 100%;
+        width: clamp(10rem, 13vw + 7.029rem, 24.857rem);
         border-radius: 10px;
         padding: 1.1em 1.5em .8em 1.1em;
         background: #FFFFFF;
-        @include flex($dir: column,$justify:space-between);
-        height: clamp(100px, 100px + 8vw, 390px);
+        @include flex($dir: column, $justify: space-between);
+        height: clamp(7.143rem, 18.125vw + 3rem, 27.857rem);
         scroll-snap-align: start;
 
-        @include mediaMin($size:$device-M){
+        @include mediaMin($size: $device-M) {
             padding: 2.7em 3.5em 3em;
         }
 
-       
+
     }
 
-    &__container-text{
+    &__container-text {
         align-self: flex-start;
-        margin-bottom: 2.1em;
     }
 
     &__header {
         align-self: flex-start;
-        font-size: .8rem;
+        font-size: clamp(0.786rem, 0.813vw + 0.6rem, 1.714rem);
         font-weight: 500;
-        line-height: 12px;
+        line-height: normal;
         color: #2D283E;
-        margin-bottom: .3em;
+        margin-bottom: clamp(0.214rem, 0.563vw + 0.086rem, 0.857rem);
     }
+
+
 
     &__short {
         align-self: flex-start;
-        font-size: .68rem;
+        font-size: clamp(0.571rem, 0.5vw + 0.457rem, 1.143rem);
         font-weight: 500;
         line-height: 10px;
-     
     }
 
     &__link {
-        min-width: 100px;
-        width: 100%;
+        width: clamp(7.143rem, 9.375vw + 5rem, 17.857rem);
         text-align: center;
-        display: block;
-        padding: .5em 1em;
+        @include flex;
+        padding: .5em .4em;
         border: 0.89px solid #7A5AF8;
         color: $primary-color;
-        border-radius: 10px;
+        border-radius: 562px;
         text-decoration: none;
-        font-size: .7rem;
+        font-size: clamp(0.714rem, 0.625vw + 0.571rem, 1.429rem);
         font-weight: 500;
-        line-height: 10px;
-
-       
-
-
+        line-height: normal;
     }
 }
 
 .cards-comics {
-    width: clamp(90px, 12vw, 182px);
-    height: clamp(115px, 22vh, 219px);
+    width: clamp(6.429em, 5.114em + 5.75vw, 13em);
+    height: clamp(8.214em, 6.729em + 6.2vw, 15.643em)
 }

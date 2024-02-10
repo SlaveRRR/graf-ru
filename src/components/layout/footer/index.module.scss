@@ -17,25 +17,15 @@
     &__item {
         position: relative;
         text-decoration: none;
-        color: $main-color;
-        font-size: .8rem;
+        color: $black-color;
+        font-size: clamp(0.714rem, 0.375vw + 0.629rem, 1.143rem);
         font-weight: 500;
         line-height: 12px;
-    }
-
-    &__contacts {
-        font-size: .8rem;
-        width: max-content;
-        margin: 0 auto .3em;
     }
 
     &__mail {
+        color: inherit;
         text-decoration: none;
-        color: $main-color;
-        font-size: .8rem;
-        font-weight: 500;
-        line-height: 12px;
-        
     }
 
     &__logo {
@@ -51,12 +41,12 @@
     }
 }
 
-.dot {
+.line {
     position: absolute;
-    top: 5px;
-    right: -6px;
+    top: -5px;
+    right: -8px;
     display: inline-block;
     width: 2px;
-    height: 2px;
+    height: 17px;
     background: #2D283E;
 }

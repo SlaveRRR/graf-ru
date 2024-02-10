@@ -11,7 +11,7 @@ const Footer: FC = () => {
             <div className={cn(styles['footer-container'], "container")}>
                 <div className={styles["icons"]}>
                     <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_543_985)">
+                        <g clipPath="url(#clip0_543_985)">
                             <path d="M28.0116 7.69569C27.6826 6.40313 26.7134 5.38425 25.482 5.03841C23.2516 4.41141 14.305 4.41141 14.305 4.41141C14.305 4.41141 5.35842 4.41141 3.12684 5.03841C1.89661 5.38425 0.927442 6.40188 0.598427 7.69569C0 10.0395 0 14.9286 0 14.9286C0 14.9286 0 19.8177 0.598427 22.1615C0.927442 23.454 1.89661 24.4729 3.12803 24.8188C5.35842 25.4458 14.305 25.4458 14.305 25.4458C14.305 25.4458 23.2516 25.4458 25.4832 24.8188C26.7134 24.4729 27.6826 23.4553 28.0128 22.1615C28.61 19.8177 28.61 14.9286 28.61 14.9286C28.61 14.9286 28.61 10.0395 28.0116 7.69569ZM11.3796 19.3686V10.4886L18.8564 14.9286L11.3796 19.3686Z" fill="#2D283E" />
                         </g>
                         <defs>
@@ -55,16 +55,14 @@ const Footer: FC = () => {
                     </svg>
                 </div>
                 <div className={styles["links"]}>
-                <Link className={styles['links__item']} to='/about'>О нас <span className={styles["dot"]}></span></Link>
-                <Link className={styles['links__item']} to='/about'>Помощь <span className={styles["dot"]}></span></Link>
-                <Link className={styles['links__item']} to='/about'>Авторское правое <span className={styles["dot"]}></span></Link>
-                <Link className={styles['links__item']} to='/about'>DMCA</Link>
-                <Link className={styles['links__item']} to='/about'>Политика <span className={styles["dot"]}></span></Link>
-                <Link className={styles['links__item']} to='/about'>Пользовательское соглашение</Link>
-                <Link className={styles['links__item']} to='/about'>Конфиденциальность <span className={styles["dot"]}></span></Link>
-                <Link className={styles['links__item']} to='/about'>Агентский договор</Link>
+                <Link className={styles['links__item']} to='/about'>О нас <span className={styles["line"]}></span></Link>
+                <Link className={styles['links__item']} to='/reviews'>Отзывы <span className={styles["line"]}></span></Link>
+                <p className={styles['links__item']}><a className={styles['links__mail']} href="mailto:grafru@gmail.com">Почта</a> <span className={styles["line"]}></span></p>
+                <Link className={styles['links__item']} to='/about'>Помощь <span className={styles["line"]}></span></Link>
+                <Link className={styles['links__item']} to='/about'>Конфиденциальность <span className={styles["line"]}></span></Link>
+                <Link className={styles['links__item']} to='/about'>Реклама</Link>
                 </div>
-                <p className={styles['links__contacts']}>Почта для связи: <a className={styles['links__mail']} href="mailto:grafru@gmail.com">почта</a></p>
+               
                 <Link style={{
                     display:'block',
                     width:'80px',

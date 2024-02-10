@@ -1,18 +1,20 @@
-
-import React,{FC} from 'react'
-
+import React, { FC } from 'react';
+import cn from  'classnames'
 import styles from './index.module.scss';
 import { Link } from 'react-router-dom';
 
 type Props = {
-    text:string;
-    url:string;
-}
+  text: string;
+  url: string;
+  mixClass?: string[];
+};
 
-const Badge : FC<Props> = ({text,url}) => {
+const Badge: FC<Props> = ({ text, url, mixClass = [] }) => {
   return (
-    <Link className={styles['badge']} to={url}>{text}</Link>
-  )
-}
+    <Link className={cn(styles['badge'],...mixClass)} to={url}>
+      {text}
+    </Link>
+  );
+};
 
-export default Badge
+export default Badge;

@@ -1,80 +1,53 @@
-
 import React, { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/scss'
+import 'swiper/scss';
+import cn from 'classnames'
 import styles from './index.module.scss';
 import { Link } from 'react-router-dom';
 
-
 import 'swiper/css/pagination';
 
-import { Pagination,Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 type Props = {
-    arr: string[];
-   
-}
-
+  arr: string[];
+};
+// || (slidesPerView === 1 && activeColIndexWithShift > (slides.length - slidesPerView * 2) - 1 )
 const SliderArticles: FC<Props> = ({ arr }) => {
-    return (
-        <>
-            <div className={styles["slider"]}>
-                <Swiper
+  return (
+    <div className={styles['slider']}>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={50}
+        loop={true}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: true,
+        }}
+        
+        pagination={{
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + '' + '</span>';
+          },
+          clickable:true,
+        }}
+        className={cn('swiper',styles['my-swiper'])}
+        modules={[Pagination, Autoplay]}
+      >
+        {arr.map((text, ind) => (
+          <SwiperSlide key={ind} className={styles['slide']}>
+            <div className={styles['slide__text-container']}>
+              <p className={styles['slide__text']}>{text}</p>
+              <Link className={styles['slide__link']} to={'/article'}>
+                Читать подробнее
+              </Link>
+            </div>
+            <div className={styles['slide__img']}></div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
 
-                    slidesPerView={1}
-                    spaceBetween={50}
-                    loop={true}
-                    autoplay={{
-
-                        delay: 3500,
-                        disableOnInteraction: false,
-
-                    }}
-                    pagination={
-                        {
-                            renderBullet: function (index, className) {
-                                return '<span class="' + className + '">' + '' + '</span>';
-                            },
-                        }
-                    }
-
-                    style={{
-
-                        //@ts-ignore
-
-                        "--swiper-pagination-color": "#7A5AF8",
-                        "--swiper-pagination-bullet-inactive-color": "#DFDFDF",
-                        "--swiper-pagination-top": "125px",
-                        "--swiper-pagination-bullet-inactive-opacity": "1",
-                        "--swiper-pagination-bullet-size": "6px",
-                        "--swiper-pagination-bullet-horizontal-gap": "3px",
-                        "paddingBottom": '50px'
-                    }}
-                    modules={[Pagination,Autoplay ]}
-                >
-                    {arr.map((text, ind) =>
-
-                        <SwiperSlide
-                            key={ind}
-                            className={styles['slide']}>
-
-                            <div className={styles['slide__text-container']}>
-                                <p className={styles['slide__text']}>{text}</p>
-                                <Link className={styles['slide__link']} to={'/article'}>Читать подробнее</Link>
-                            </div>
-                            <div className={styles['slide__img']}></div>
-
-
-                        </SwiperSlide>)}
-
-                </Swiper>
-
-            </div >
-
-        </>
-
-
-    )
-}
-
-export default SliderArticles
+export default SliderArticles;

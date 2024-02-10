@@ -13,24 +13,28 @@
     @include flex($justify: space-between);
 
     @include mediaMin($size: $device-M) {
+        height: 120px;
         padding-top: 0;
         padding-bottom: 0;
 
     }
 }
 
-
+.header-buttons{
+    @include flex($gap:3.5em);
+}
 
 .nav {
 
-    @include flex($gap: 1em);
+    @include flex($gap: 2.8em);
 
     
-
+    
     @include mediaMax($size: $device-M) {
         padding-top: 1em;
         padding-left: 1em;
         display: grid;
+        gap:1em;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(fit);
         grid-auto-rows: repeat(auto-fit, min-content);
@@ -59,11 +63,11 @@
 
         color: #000000;
         text-decoration: none;
-        font-size: clamp(1.2rem, 1.5vw, 1.72rem);
+        font-size: clamp(1.143rem, 0.694vw + 0.762rem, 1.714rem);
         font-weight: 500;
         line-height: 29px;
 
-        @include mediaMax($size: $device-XM) {
+        @include mediaMax($size: $device-M) {
             border-bottom: 1px solid #DFDFDF;
             padding-bottom: .5em;
         }

@@ -48,16 +48,17 @@ const Home: FC = () => {
       </section>
       <section className={styles['popular-section']}>
         <div className={cn(styles['popular-container'], 'container')}>
-          <ArrowLink mixClass={[styles['popular-container__link']]} text="Популярные" url="/popular" />
+          
+            <ArrowLink mixClass={[styles['popular-container__link']]} text="Популярные" url="/popular" />
 
-          <div className={styles['popular-cards']}>
-            <Card mixClass={[styles['cards-comics']]} text="Название" />
-            <Card mixClass={[styles['cards-comics']]} text="Название" />
-            <Card mixClass={[styles['cards-comics']]} text="Название" />
-            <Card mixClass={[styles['cards-comics']]} text="Название" />
-            <Card mixClass={[styles['cards-comics']]} text="Название" />
-            <Card mixClass={[styles['cards-comics']]} text="Название" />
-          </div>
+            <div className={styles['popular-cards']}>
+              <Card mixClass={[styles['cards-comics']]} text="Название" />
+              <Card mixClass={[styles['cards-comics']]} text="Название" />
+              <Card mixClass={[styles['cards-comics']]} text="Название" />
+              <Card mixClass={[styles['cards-comics']]} text="Название" />
+              <Card mixClass={[styles['cards-comics']]} text="Название" />
+              <Card mixClass={[styles['cards-comics']]} text="Название" />
+            </div>
         </div>
       </section>
       <section className={styles['novelty-section']}>
@@ -77,11 +78,18 @@ const Home: FC = () => {
       <section className={styles['genre-section']}>
         <ArrowLink mixClass={[styles['genre-container__link']]} text="Жанры" url="/catalog" />
         <div className={styles['genres']}>
-          <Badge text="Повседневность" url="/catalog?genre=повседневность" />
-          <Badge text="Фантастика" url="/catalog?genre=фантастика" />
-          <Badge text="Детектив" url="/catalog?genre=детектив" />
-          <Badge text="Трагедия" url="/catalog?genre=трагедия" />
-          <Badge text="Романтика" url="/catalog?genre=романтика" />
+          <Badge
+            mixClass={[styles['genre-container__badge']]}
+            text="Повседневность"
+            url="/catalog?genre=повседневность"
+          />
+          <Badge mixClass={[styles['genre-container__badge']]} text="Фантастика" url="/catalog?genre=фантастика" />
+          <Badge mixClass={[styles['genre-container__badge']]} text="Детектив" url="/catalog?genre=детектив" />
+          <Badge mixClass={[styles['genre-container__badge']]} text="Трагедия" url="/catalog?genre=трагедия" />
+          <Badge mixClass={[styles['genre-container__badge']]} text="Романтика" url="/catalog?genre=романтика" />
+          <Badge mixClass={[styles['genre-container__badge']]} text="Драма" url="/catalog?genre=драма" />
+          <Badge mixClass={[styles['genre-container__badge']]} text="Спорт" url="/catalog?genre=спорт" />
+          <Badge mixClass={[styles['genre-container__badge']]} text="Ужасы" url="/catalog?genre=ужасы" />
         </div>
       </section>
       <section className={styles['slider-section']}>
@@ -94,15 +102,6 @@ const Home: FC = () => {
         <div className="container">
           <ArrowLink mixClass={[styles['slider-container__link']]} text="Полезные статьи" url="/articles" />
           <div className={styles['articles']}>
-            <div className={styles['articles__item']}>
-              <div className={styles['articles__container-text']}>
-                <header className={styles['articles__header']}>Название статьи</header>
-                <p className={styles['articles__short']}>Кратко о статье</p>
-              </div>
-              <Link className={styles['articles__link']} to={'/article'}>
-                Читать статью
-              </Link>
-            </div>
             <div className={styles['articles__item']}>
               <div className={styles['articles__container-text']}>
                 <header className={styles['articles__header']}>Название статьи</header>

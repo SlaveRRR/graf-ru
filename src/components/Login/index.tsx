@@ -19,19 +19,19 @@ type FormData = {
 const Login : FC = () => {
     const [visible,setVisible] = useState(false);
     const navigate = useNavigate();
-    const {loader:[isActive,setActive]} = useContext(ctx);
+    const {setActiveLoader} = useContext(ctx);
 
-    const {handleSubmit,reset,register,formState:{errors,dirtyFields}} = useForm<FormData>({
+    const {handleSubmit,register,formState:{errors,dirtyFields}} = useForm<FormData>({
         mode:"onChange"
     });
 
     const handler: SubmitHandler<FormData> = async (data) => {
         // имитация api
         const delay = (ms:number) : Promise<void> => new Promise((res,rej) => setTimeout(() => res(),ms))
-        setActive(true)
+        setActiveLoader(true)
         await delay(3000)
         
-        setActive(false)
+        setActiveLoader(false)
         console.log(data)
       
         

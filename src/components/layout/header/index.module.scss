@@ -13,7 +13,7 @@
     @include flex($justify: space-between);
 
     @include mediaMin($size: $device-M) {
-        height: 120px;
+        height: 75px;
         padding-top: 0;
         padding-bottom: 0;
 
@@ -80,7 +80,7 @@
 }
 
 .signin-link {
-    display: none;
+    display: block;
     border: 1px solid #7A5AF8;
     color: #7A5AF8;
     border-radius: 3rem;
@@ -94,11 +94,27 @@
 
 
     @include mediaMin($size: $device-M) {
-        display: block;
+        display: none;
     }
 
 }
+.signin-btn{
+    background: transparent;
+    display: none;
+    border: 1px solid #7A5AF8;
+    color: #7A5AF8;
+    border-radius: 3rem;
+    padding: .7rem 2rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
 
+    @include mediaMin($size: $device-M) {
+        display: block;
+    }
+}
 .avatar {
     display: none;
 

@@ -11,19 +11,18 @@ import styles from './index.module.scss';
 import { Switch } from '@/components/UI';
 
 const Header: FC = () => {
-  const {
-    burger: [isActive, setActive],
-  } = useContext(ctx);
+  const {setActiveBurger,activeBurger,setActiveModal} = useContext(ctx);
 
-  const handleBurgerClick = () => setActive(!isActive);
+  const handleBurgerClick = () => setActiveBurger(!activeBurger);
+   
 
   return (
     <header className={styles['header']}>
       <div className={cn(styles['header-container'], 'container')}>
         <nav
-          onClick={() => setActive(false)}
+          onClick={() => setActiveBurger(false)}
           className={cn(styles['nav'], {
-            [styles['nav--active']]: isActive,
+            [styles['nav--active']]: activeBurger,
           })}
         >
           <figure className={styles['avatar']}>
@@ -45,7 +44,7 @@ const Header: FC = () => {
           <button className={styles['auth-btn']}>Выйти</button>
         </nav>
 
-        <BurgerMenu isActive={isActive} onClick={handleBurgerClick} />
+        <BurgerMenu isActive={activeBurger} onClick={handleBurgerClick} />
         <Link to={'/'}>
           <img
             alt="логотип сайта"
@@ -58,7 +57,7 @@ const Header: FC = () => {
             src={Logo}
           />
         </Link>
-        <div className={styles["header-buttons"]}>
+        <div className={styles['header-buttons']}>
           <Switch
             checked={
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14" fill="none">
@@ -84,6 +83,7 @@ const Header: FC = () => {
           <Link className={styles['signin-link']} to={'/signin'}>
             Войти
           </Link>
+          <button onClick={() => setActiveModal(true)} className={styles['signin-btn']}>Войти</button>
         </div>
       </div>
     </header>

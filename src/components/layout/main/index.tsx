@@ -7,10 +7,8 @@ type Props = {
 };
 
 const Main: FC<Props> = ({ children }) => {
-  const {
-    burger: [isActive, setActive],
-  } = useContext(ctx);
-  return <main className={styles.main} onClick={() => setActive(false)}>{children}</main>;
+  const {setActiveBurger} = useContext(ctx);
+  return <main className={styles.main} onClick={() => setActiveBurger(false)}>{children}</main>;
 };
 
 export default Main;

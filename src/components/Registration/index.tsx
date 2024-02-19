@@ -1,6 +1,6 @@
 
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import { Logo } from '../UI'
 
 import cn from 'classnames'
@@ -9,7 +9,6 @@ import styles from './index.module.scss'
 import { BackLink, SocialAuthLinks } from '../shared'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { ctx } from '../../context/contextProvider'
-import { useNavigate } from 'react-router-dom';
 
 type FormData = {
     username: string;
@@ -24,7 +23,7 @@ type FormData = {
 const Registration = () => {
     const [visible, setVisible] = useState(false);
     const [isVisibleAlert, setAlert] = useState(false);
-    const { loader: [isActive, setActive] } = useContext(ctx);
+    const { setActiveLoader } = useContext(ctx);
     const navigate = useNavigate();
     const { register, formState: { errors, dirtyFields }, getValues, setError, reset, handleSubmit } = useForm<FormData>({
         mode: 'onChange',
@@ -37,14 +36,13 @@ const Registration = () => {
     const handler: SubmitHandler<FormData> = async (data) => {
         // имитация api
         const delay = (ms: number): Promise<void> => new Promise((res, rej) => setTimeout(() => res(), ms))
-        setActive(true)
+        setActiveLoader(true)
         await delay(3000)
 
-        setActive(false)
+        setActiveLoader(false)
         console.log(data)
 
         navigate('/signin')
-        return
     }
 
     return (

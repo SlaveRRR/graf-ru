@@ -1,7 +1,7 @@
 
 
 import React, { FC } from 'react'
-import Logo from '@/assets/logo.svg'
+import Logo from '@/assets/logo-footer.svg'
 import styles from './index.module.scss'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
@@ -55,22 +55,20 @@ const Footer: FC = () => {
                     </svg>
                 </div>
                 <div className={styles["links"]}>
-                <Link className={styles['links__item']} to='/about'>О нас <span className={styles["line"]}></span></Link>
-                <Link className={styles['links__item']} to='/reviews'>Отзывы <span className={styles["line"]}></span></Link>
-                <p className={styles['links__item']}><a className={styles['links__mail']} href="mailto:grafru@gmail.com">Почта</a> <span className={styles["line"]}></span></p>
-                <Link className={styles['links__item']} to='/about'>Помощь <span className={styles["line"]}></span></Link>
-                <Link className={styles['links__item']} to='/about'>Конфиденциальность <span className={styles["line"]}></span></Link>
-                <Link className={styles['links__item']} to='/about'>Реклама</Link>
+                <Link className={styles['links__item']} to='/about'>О нас <span className={styles["dot"]}></span></Link>
+                <Link className={styles['links__item']} to='/help'>Помощь <span className={styles["dot"]}></span></Link>
+                <Link className={styles['links__item']} to='/copyright'>Авторское право</Link>
+                <Link className={styles['links__item']} to='/user-agreement'>Пользовательское соглашение <span className={styles["dot"]}></span></Link>
+                <Link className={styles['links__item']} to='/policy'>Политика</Link>
+                <Link className={styles['links__item']} to='/contacts'>Контакты <span className={styles["dot"]}></span></Link>
+                <Link className={styles['links__item']} to='/agreement'>Агентский договор</Link>
                 </div>
                
                 <Link style={{
                     display:'block',
-                    width:'80px',
-                    margin:"0 auto"
-                }}  to={'/'}><img  style={{
-                    width:'100%',
-                    objectFit:"cover"
-                }} src={Logo} /></Link>
+                    margin:'0 auto',
+                    width:'max-content'
+                }} to={'/'}><img alt='logo-foooter' src={Logo} /></Link>
             </div>
         </footer>
     )

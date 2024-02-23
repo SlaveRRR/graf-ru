@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { Link, useNavigate } from 'react-router-dom';
 import { BackLink, SocialAuthLinks } from '@/components/shared';
 import styles from './index.module.scss';
+import {Fade} from 'react-awesome-reveal';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 type FormData = {
@@ -39,6 +40,7 @@ const ModalAuth: FC = () => {
   };
 
   return (
+    <Fade>
     <div
       onClick={() => setActiveModal(false)}
       className={cn(styles['modal'], {
@@ -126,6 +128,7 @@ const ModalAuth: FC = () => {
         </div>
       </div>
     </div>
+    </Fade>
   );
 };
 

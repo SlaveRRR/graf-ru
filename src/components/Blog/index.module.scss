@@ -1,10 +1,12 @@
 @use '../../styles/global' as *;
 
 .blog {
+
+    overflow: hidden;
+
     &__header {
         margin-bottom: 2em;
         @include flex($gap: .8em);
-
     }
 
     &__header-text {
@@ -25,9 +27,11 @@
         color: white;
         border-radius: 249px;
     }
-    &__link{
+
+    &__link {
         margin-bottom: .9em;
     }
+
     &__container {
         padding-top: 1em;
     }
@@ -78,8 +82,9 @@
     &__filter {
         margin-bottom: 1em;
     }
-   
+
 }
+
 .articles {
     @include flex($gap: 1em);
 
@@ -90,12 +95,14 @@
         background: #FFFFFF;
         @include flex($dir: column);
     }
-    &__item-card{
+
+    &__item-card {
         border-radius: 10px;
         padding: 1.1em 1.5em .8em 1.1em;
         background: #FFFFFF;
         @include flex($dir: column);
     }
+
     &__header {
         align-self: flex-start;
         font-size: .8rem;
@@ -119,7 +126,7 @@
         display: block;
         padding: .5em 1em;
         border: 0.89px solid #7A5AF8;
-        color:$primary-color;
+        color: $primary-color;
         border-radius: 10px;
         text-decoration: none;
         font-size: .7rem;
@@ -129,14 +136,17 @@
 
     }
 }
-.blog-articles{
+
+.blog-articles {
     margin-bottom: 2.5em;
 }
-.articles-card{
+
+.articles-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap:10px;
+    gap: 10px;
 }
-.filter-section{
+
+.filter-section {
     margin-bottom: 3em;
 }

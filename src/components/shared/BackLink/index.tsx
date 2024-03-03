@@ -11,7 +11,7 @@ type Props = {
     mixClass?:string[]
 }
 
-const BackLink: FC<Props> = ({mixClass}) => {
+const BackLink: FC<Props> = ({mixClass = []}) => {
     const navigate = useNavigate()
     return (
 

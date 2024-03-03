@@ -11,13 +11,15 @@
 }
 
 .links {
-    @include flex($wrap: wrap, $gap: .8em);
+    @include flex($wrap: wrap);
+    row-gap: .4em;
+    column-gap: 1.27em;
     margin-bottom: .8em;
 
     &__item {
         position: relative;
         text-decoration: none;
-        color: $black-color;
+        color: $main-color;
         font-size: clamp(0.714rem, 0.375vw + 0.629rem, 1.143rem);
         font-weight: 500;
         line-height: 12px;
@@ -41,12 +43,14 @@
     }
 }
 
-.line {
+.dot {
     position: absolute;
-    top: -5px;
-    right: -8px;
+    top: 50%;
+    right: -9px;
+    transform: translateY(-50%);
     display: inline-block;
     width: 2px;
-    height: 17px;
+    height: 2px;
+    border-radius: 2px;
     background: #2D283E;
 }

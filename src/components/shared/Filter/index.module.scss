@@ -47,6 +47,9 @@
         font-size: .86rem;
         font-weight: 600;
         line-height: normal;
+        @include mediaMin($device-M){
+            margin-left: 0;
+        }
     }
 
     &__item {

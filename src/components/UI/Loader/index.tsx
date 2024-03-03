@@ -7,11 +7,11 @@ import styles from './index.module.scss'
 
 const Loader : FC = () => {
     
-    const {loader:[isActive,setActive]} = useContext(ctx);
+    const {activeLoader} = useContext(ctx);
     
   return (
     <div className={cn(styles["loader"],{
-        [styles["loader--active"]]:isActive
+        [styles["loader--active"]]:activeLoader
     })}>
         <h2 className={styles['loader__text']}>Секундочку...</h2>
         <div className={styles["circles"]}>

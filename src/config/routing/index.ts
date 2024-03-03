@@ -5,13 +5,7 @@ export const routes = {
     // 'Профиль читателя': '/profile',
     // 'Профиль автора': '/author',
     "Каталог": '/catalog',
-    "Популярное": '/popular',
+    // "Популярное": '/popular',
     'Блог': '/blog',
 }
 
-export const homeRoute = '/'
-export const registrationRoute = '/'
-export const authrRoute = '/'
-export const profileRoute = '/'
-export const catalogRoute = '/'
-export const blogRoute = '/'

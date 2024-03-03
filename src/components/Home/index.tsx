@@ -48,17 +48,16 @@ const Home: FC = () => {
       </section>
       <section className={styles['popular-section']}>
         <div className={cn(styles['popular-container'], 'container')}>
-          
-            <ArrowLink mixClass={[styles['popular-container__link']]} text="Популярные" url="/popular" />
+          <ArrowLink mixClass={[styles['popular-container__link']]} text="Популярные" url="/popular" />
 
-            <div className={styles['popular-cards']}>
-              <Card mixClass={[styles['cards-comics']]} text="Название" />
-              <Card mixClass={[styles['cards-comics']]} text="Название" />
-              <Card mixClass={[styles['cards-comics']]} text="Название" />
-              <Card mixClass={[styles['cards-comics']]} text="Название" />
-              <Card mixClass={[styles['cards-comics']]} text="Название" />
-              <Card mixClass={[styles['cards-comics']]} text="Название" />
-            </div>
+          <div className={styles['popular-cards']}>
+            <Card text="Название" />
+            <Card text="Название" />
+            <Card text="Название" />
+            <Card text="Название" />
+            <Card text="Название" />
+            <Card text="Название" />
+          </div>
         </div>
       </section>
       <section className={styles['novelty-section']}>

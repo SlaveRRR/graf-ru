@@ -5,7 +5,7 @@ import { FC } from 'react'
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
-import Error from './pages/Error';
+import ErrorPage from './pages/Error';
 import LayoutPage from './pages/Layout';
 import HomePage from './pages/Home';
 import Profile from './pages/Profile';
@@ -20,7 +20,7 @@ import ComicsPage from './pages/ComicsPage';
 const router = createBrowserRouter([{
   path:'/',
   element:<LayoutPage/>,
-  errorElement:<Error/>,
+  errorElement:<ErrorPage/>,
   children:[
     {
       path:'/',

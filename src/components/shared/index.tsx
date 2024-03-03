@@ -6,5 +6,7 @@ import Filters from "./Filters";
 import SearchFilter from "./SearchFilter";
 import Filter from "./Filter";
 import SortFilter from "./SortFilter";
+import ActiveFilters from "./ActiveFilters";
+import ShowMore from "./ShowMore";
 
-export {BackLink,SocialAuthLinks,ArrowLink,Stats,Filters,SearchFilter,SortFilter,Filter}
+export {BackLink,SocialAuthLinks,ArrowLink,Stats,Filters,SearchFilter,SortFilter,Filter,ActiveFilters,ShowMore}

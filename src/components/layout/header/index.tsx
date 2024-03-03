@@ -1,5 +1,4 @@
-import React, { FC, useContext } from 'react';
-import Logo from '@/assets/logo.svg';
+import React, { FC, useContext, useState } from 'react';
 import { ctx } from '../../../context/contextProvider';
 
 import { BurgerMenu } from '../../UI/index';
@@ -11,55 +10,47 @@ import styles from './index.module.scss';
 import { Switch } from '@/components/UI';
 
 const Header: FC = () => {
-  const {
-    burger: [isActive, setActive],
-  } = useContext(ctx);
 
-  const handleBurgerClick = () => setActive(!isActive);
+  const [isAuth,setIsAuth] = useState<boolean>(true)
+
+  const {setActiveBurger,activeBurger,setActiveModal,setActiveAvatar,activeAvatar} = useContext(ctx);
+
+  const handleBurgerClick = () =>{
+    setActiveBurger(prev => !prev);
+    setActiveAvatar(false);
+  } 
+  
+  const handleAvatarClick = () => {
+    setActiveAvatar(prev => !prev);
+    setActiveBurger(false);
+  }
 
   return (
     <header className={styles['header']}>
       <div className={cn(styles['header-container'], 'container')}>
         <nav
-          onClick={() => setActive(false)}
           className={cn(styles['nav'], {
-            [styles['nav--active']]: isActive,
+            [styles['nav--active']]: activeBurger,
           })}
         >
-          <figure className={styles['avatar']}>
-            <img alt="аватарка пользователя" className={styles['avatar__img']} src="./avatar.svg" />
-            <figcaption className={styles['avatar__name']}>Никнейм</figcaption>
-          </figure>
-
           {Object.entries(routes).map(([text, url], i) => (
-            <NavLink
+            <>
+              <NavLink
               className={({ isActive }) =>
-                isActive ? cn(styles['nav__item'], styles['nav__item--active']) : styles['nav__item']
+              isActive ? cn(styles['menu-link'], styles['menu-link--active']) : styles['menu-link']
               }
               key={i + 1}
               to={url}
+              onClick={() => setActiveBurger(false)}
             >
               {text}
             </NavLink>
+            <span className={styles["line"]}></span>
+            </>
+          
           ))}
-          <button className={styles['auth-btn']}>Выйти</button>
-        </nav>
-
-        <BurgerMenu isActive={isActive} onClick={handleBurgerClick} />
-        <Link to={'/'}>
-          <img
-            alt="логотип сайта"
-            width={40}
-            height={40}
-            style={{
-              objectFit: 'cover',
-              objectPosition: 'center',
-            }}
-            src={Logo}
-          />
-        </Link>
-        <div className={styles["header-buttons"]}>
-          <Switch
+          <Link onClick={() => setActiveBurger(false)} className={styles['add-comics']} to={'/author'}>Добавить комикс</Link>
+           <Switch
             checked={
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14" fill="none">
                 <g clipPath="url(#clip0_989_1122)">
@@ -81,10 +72,64 @@ const Header: FC = () => {
               </svg>
             }
           />
-          <Link className={styles['signin-link']} to={'/signin'}>
+        </nav>
+        <nav
+          className={cn(styles['right-nav'], {
+            [styles['right-nav--active']]: activeAvatar,
+          })}
+        >
+           <figure className={styles['avatar']}>
+           <figcaption className={styles['avatar__name']}>Никнейм</figcaption>
+            <img alt="аватарка пользователя" className={styles['avatar__img']} src="./avatar.svg" />
+          </figure>
+          <span className={styles["line"]}></span>
+          <NavLink
+              className={({ isActive }) =>
+              isActive ? cn(styles['menu-link'], styles['menu-link--active']) : styles['menu-link']
+              }
+              to={'/notifications'}
+              onClick={() => setActiveAvatar(false)}
+            >
+              Уведомления
+            </NavLink>
+            <span className={styles["line"]}></span>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? cn(styles['menu-link'], styles['menu-link--active']) : styles['menu-link']
+              }
+              to={'/profile'}
+              onClick={() => setActiveAvatar(false)}
+            >
+              Изменить профиль
+            </NavLink>
+            <span className={styles["line"]}></span>
+          <button className={styles['auth-btn']}>Выйти</button>
+        </nav>
+
+        <BurgerMenu isActive={activeBurger} onClick={handleBurgerClick} />
+        <Link to={'/'}>
+            <picture className={styles['logo-mobile']}>
+            <source type="image/webp" srcSet="./logo-mobile.webp 1x, ./logo-mobile2x.webp 2x, ./logo-mobile3x.webp 3x" />
+                <img srcSet="
+                     ./logo-mobile.png 1x,
+                     ./logo-mobile2x.png 2x,
+                     ./logo-mobile3x.png 3x" src="./logo.png" alt="логотип" />
+            </picture>
+        </Link>
+          {
+            isAuth ?
+            <button onClick={handleAvatarClick} className={styles['right-menu-btn']}>
+               <img alt="аватарка пользователя" className={styles['avatar__img']} src="./avatar.svg" />
+            </button>
+          : 
+          <>
+           <Link className={styles['signin-link']} to={'/signin'}>
             Войти
           </Link>
-        </div>
+          <button onClick={() => setActiveModal(true)} className={styles['signin-btn']}>Войти</button> 
+          </>
+            
+          }
       </div>
     </header>
   );

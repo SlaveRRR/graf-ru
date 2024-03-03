@@ -4,7 +4,7 @@
 
     @include flex($dir: column);
 
-    &__btn {
+    &__header {
         border: none;
         background-color: transparent;
         margin: 0 auto 1.4em;
@@ -13,6 +13,9 @@
         font-size: .86rem;
         font-weight: 600;
         line-height: normal;
+        @include mediaMin($device-M){
+            margin-left: 0;
+        }
     }
 
     &__arrow-icon {

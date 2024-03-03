@@ -1,6 +1,8 @@
 @use '../../../styles/global' as *;
+
 .login {
-    background:white;
+    background: white;
+
     &__container {
         @include flex($dir: column);
         padding-top: 1em;
@@ -73,16 +75,16 @@
         }
 
         &--error {
-            background:#E545451A;
-            color:#e54545;
-          
-            
+            background: #E545451A;
+            color: #e54545;
+
+
         }
 
         &--success {
             background: #0f99181a;
             color: #0f9918;
-          
+
         }
     }
 
@@ -117,7 +119,7 @@
         font-size: .79rem;
         font-weight: 500;
         line-height: 13px;
-        
+
     }
 
     &__signin {
@@ -159,8 +161,45 @@
         height: 20px;
     }
 }
+
+    .appear{
+        transform: translateY(100%);
+    }
+
+    .appearActive{
+        transform: translateY(0);
+        transition: transform 1.5s ease;
+    }
+
+   .enter {
+        // opacity: 0;
+        transform: translateY(100%);
+    }
+
+    .enterActive {
+        // opacity: 1;
+        transform: translateY(0);
+        transition: transform 1.5s ease;
+    }
+
+    .exit {
+        transform: translateY(0);
+        // transform: translateY(0);
+    }
+
+    .exitActive {
+        opacity: 0;
+        transform: translateY(100%);
+        // transform: translateY(-100%);
+        transition: transform 1.5s ease;
+    }
+    .exitDone {
+        transform: translateY(100%) !important;
+    }
+
+
 .modal {
-    display: none;
+    @include flex;
     position: fixed;
     z-index: 1000;
     top: 0;
@@ -170,14 +209,19 @@
     background-image: url('../../../assets/bg-pc.jpg');
     background-position: center center;
     background-size: cover;
-    &--active {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+
+    // &--active{
+    //     @include flex;
+    // }
+
+
+    //   &--exit-done {
+    //     opacity: 0;
+    //   }
+
 
     &__content {
-        @include flex($dir:column);
+        @include flex($dir: column);
         padding-left: 1em;
         border-radius: 15px;
         padding-top: 2.5em;
@@ -185,7 +229,7 @@
     }
 }
 
-.backlink{
+.backlink {
     cursor: pointer;
     margin-bottom: 2em;
     align-self: flex-start;

@@ -4,13 +4,16 @@ import Layout from '@/components/layout'
 import ScrollToTop from '@/components/ScrollToTop'
 
 
-const Error: FC = () => {
+
+const ErrorPage : FC = () => {
   return (
     <Layout>
-      <div className="container">
-        <h2 style={{paddingTop:'2em',fontWeight:'bold',fontSize:'1.5rem',textAlign:'center'}}>Страница не найден</h2>
+      <div className="container" style={{
+        paddingTop:'120px'
+      }}>
+      <h2 style={{color: '#7A5AF8',fontWeight:'600',fontSize:'3.42rem',textAlign:'center',marginBottom:'5px'}}>404</h2>
+        <h2 style={{color:'#7A5AF8',fontWeight:'600',fontSize:'1.42rem',textAlign:'center',lineHeight: '24px'}}>такой страницы не существует :&#40;</h2>
       </div>
-
       <ScrollToTop />
     </Layout>
 
@@ -18,4 +21,6 @@ const Error: FC = () => {
   )
 }
 
-export default Error
+export default ErrorPage
+
+

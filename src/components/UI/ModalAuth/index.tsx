@@ -1,11 +1,11 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useContext, useRef, useState } from 'react';
 import { ctx } from '@/context/contextProvider';
 import cn from 'classnames';
 import { Link, useNavigate } from 'react-router-dom';
 import { BackLink, SocialAuthLinks } from '@/components/shared';
 import styles from './index.module.scss';
-import {Fade} from 'react-awesome-reveal';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { CSSTransition } from 'react-transition-group';
 
 type FormData = {
   username:string;
@@ -17,6 +17,8 @@ const ModalAuth: FC = () => {
   const navigate = useNavigate();
 
   const { activeModal, setActiveModal,setActiveLoader } = useContext(ctx);
+
+  
 
   const {
     handleSubmit,
@@ -38,14 +40,20 @@ const ModalAuth: FC = () => {
     alert('Вы вошли');
     return navigate(`/`);
   };
-
+ 
   return (
-    <Fade>
-    <div
+    <CSSTransition
+    appear={true}  
+    timeout={1500} in={activeModal}
+    mountOnEnter
+    unmountOnExit 
+    classNames={{...styles}}
+ >
+    
+     <div
+
       onClick={() => setActiveModal(false)}
-      className={cn(styles['modal'], {
-        [styles['modal--active']]: activeModal,
-      })}
+      className={styles['modal']}
     >
       <div className="container">
         <div className={styles['modal__content']} onClick={(e) => e.stopPropagation()}>
@@ -128,8 +136,13 @@ const ModalAuth: FC = () => {
         </div>
       </div>
     </div>
-    </Fade>
+     
+     
+     
+    </CSSTransition>
+
   );
 };
 
 export default ModalAuth;
+

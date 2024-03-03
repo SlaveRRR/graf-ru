@@ -18,7 +18,7 @@ const SearchFilter : FC<Props> = ({isActive,setActive,filters,header,colorClass,
     return (
             <div className={styles["filter"]}>
 
-                <button onClick={setActive} className={styles["filter__btn"]}>{header}  <svg className={cn({
+                <button onClick={setActive} className={styles["filter__header"]}>{header}  <svg className={cn({
                     [styles['filter__arrow-icon--active']]: isActive
                 })} width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_758_1358)">

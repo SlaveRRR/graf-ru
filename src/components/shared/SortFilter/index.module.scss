@@ -24,6 +24,9 @@
         font-size: .86rem;
         font-weight: 600;
         line-height: normal;
+        @include mediaMin($device-M){
+            margin-left: 0;
+        }
     }
 
     &__content {
@@ -52,7 +55,7 @@
 
     &__radio-btn {
         display: inline-block;
-        width: 16px;
+        min-width: 16px;
         height: 16px;
         border: 1px solid $main-color;
         border-radius: 100px;

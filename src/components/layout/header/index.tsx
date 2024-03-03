@@ -88,7 +88,7 @@ const Header: FC = () => {
               isActive ? cn(styles['menu-link'], styles['menu-link--active']) : styles['menu-link']
               }
               to={'/notifications'}
-              onClick={() => setActiveBurger(false)}
+              onClick={() => setActiveAvatar(false)}
             >
               Уведомления
             </NavLink>
@@ -98,7 +98,7 @@ const Header: FC = () => {
                 isActive ? cn(styles['menu-link'], styles['menu-link--active']) : styles['menu-link']
               }
               to={'/profile'}
-              onClick={() => setActiveBurger(false)}
+              onClick={() => setActiveAvatar(false)}
             >
               Изменить профиль
             </NavLink>
@@ -108,9 +108,7 @@ const Header: FC = () => {
 
         <BurgerMenu isActive={activeBurger} onClick={handleBurgerClick} />
         <Link to={'/'}>
-            <picture style={{
-              maxWidth:'100%'
-            }}>
+            <picture className={styles['logo-mobile']}>
             <source type="image/webp" srcSet="./logo-mobile.webp 1x, ./logo-mobile2x.webp 2x, ./logo-mobile3x.webp 3x" />
                 <img srcSet="
                      ./logo-mobile.png 1x,
@@ -118,7 +116,6 @@ const Header: FC = () => {
                      ./logo-mobile3x.png 3x" src="./logo.png" alt="логотип" />
             </picture>
         </Link>
-        <div className={styles['header-buttons']}>
           {
             isAuth ?
             <button onClick={handleAvatarClick} className={styles['right-menu-btn']}>
@@ -133,7 +130,6 @@ const Header: FC = () => {
           </>
             
           }
-        </div>
       </div>
     </header>
   );

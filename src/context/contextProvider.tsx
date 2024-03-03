@@ -1,3 +1,4 @@
+import { FilterItem } from '@/types/filter.type';
 import React, { FC, useMemo, useState } from 'react';
 
 interface IContext {
@@ -12,6 +13,11 @@ interface IContext {
 
   activeModal: boolean;
   setActiveModal: React.Dispatch<React.SetStateAction<boolean>>
+
+
+  activeFilters:FilterItem[];
+  setFilters:React.Dispatch<React.SetStateAction<FilterItem[]>>
+
 }
 export const ctx = React.createContext<IContext>({} as IContext);
 
@@ -22,7 +28,8 @@ const ContextProvider: FC<Props> = ({ children }) => {
   const [activeLoader, setActiveLoader] = useState<boolean>(false);
   const [activeBurger, setActiveBurger] = useState<boolean>(false);
   const [activeModal, setActiveModal] = useState<boolean>(false);
-  const [activeAvatar,setActiveAvatar] = useState<boolean>(false)
+  const [activeAvatar,setActiveAvatar] = useState<boolean>(false);
+  const [activeFilters, setFilters] = useState<FilterItem[]>([]);
   const obj = useMemo(
     () => ({
       activeLoader,
@@ -32,8 +39,10 @@ const ContextProvider: FC<Props> = ({ children }) => {
       activeModal,
       setActiveModal,
       activeAvatar,
-      setActiveAvatar
-    }),[activeLoader,activeBurger,activeModal,activeAvatar]);
+      setActiveAvatar,
+      activeFilters,
+      setFilters
+    }),[activeLoader,activeBurger,activeModal,activeAvatar,activeFilters]);
   return <ctx.Provider value={obj}>{children}</ctx.Provider>;
 };
 

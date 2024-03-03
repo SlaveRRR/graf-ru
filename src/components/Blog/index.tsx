@@ -15,7 +15,7 @@ const Blog: FC = () => {
 
     return (
         <>
-            <section className="blog-header">
+            <section className={styles["blog"]}>
                 <div className={cn(styles["blog__container"], "container")}>
                     <label htmlFor="search" className={styles["blog__search-label"]}>  <input type="text" id='search' placeholder='Название, автор, персонаж...' className={styles["blog__search-field"]} /></label>
                     <header className={styles['blog__header']}>

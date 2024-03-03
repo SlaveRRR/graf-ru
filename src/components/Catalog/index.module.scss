@@ -2,7 +2,14 @@
 
 .catalog {
     &__container {
+
         padding-top: 1em;
+        @include mediaMin($device-M){
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            column-gap: 1em;
+            grid-template-areas: "cards filters";
+        }
     }
 
     &__search-label {
@@ -49,11 +56,44 @@
     }
 
     &__filter {
+        @include mediaMin($device-M){
+            grid-area: filters;
+            border-radius: 20px;
+            padding-top: 12px;
+            padding-left: 35px;
+            padding-right: 35px;
+            background-color: white;
+        }
+    
         margin-bottom: 1em;
     }
-
+    &__cards-container{
+        @include mediaMin($device-M){
+            padding: clamp(1.071rem, 1.736vw + 0.119rem, 2.5rem) clamp(1.429rem, 5.729vw - 1.714rem, 6.143rem) 0;
+            // padding-top: 35px;
+            // padding-left: 86px;
+            // padding-right: 86px;
+            background: white;
+            border-radius: 20px;
+            grid-area: cards;
+            margin-bottom: 1.5em;
+        }
+    }
     &__cards {
-        margin-bottom: 1.5em;
+        grid-auto-rows: min-content;
+        grid-template-columns: repeat(auto-fit,minmax(clamp(6.429rem, 5.75vw + 5.114rem, 13rem),1fr));
+        @include mediaMin($device-M){
+            column-gap: clamp(0.714rem, 2.951vw - 0.905rem, 3.143rem);
+        }
+        
+    }
+    &__active-filters{
+        display: none;
+        @include mediaMin($device-M){
+            display: flex;
+            overflow: visible;
+            flex-wrap: wrap;
+        }
     }
 
     &__load-more {

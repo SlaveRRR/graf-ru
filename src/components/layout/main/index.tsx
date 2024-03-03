@@ -7,8 +7,12 @@ type Props = {
 };
 
 const Main: FC<Props> = ({ children }) => {
-  const {setActiveBurger} = useContext(ctx);
-  return <main className={styles.main} onClick={() => setActiveBurger(false)}>{children}</main>;
+  const {setActiveBurger,setActiveAvatar} = useContext(ctx);
+  const handleClick = () =>{
+    setActiveBurger(false);
+    setActiveAvatar(false)
+  }
+  return <main className={styles.main} onClick={() => handleClick()}>{children}</main>;
 };
 
 export default Main;

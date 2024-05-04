@@ -1,0 +1,39 @@
+/* Regular styles for .card */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    max-width: 79px;
+    font-size: .71rem;
+    font-weight: 500;
+    cursor: pointer;
+
+    &__img {
+        position: relative;
+        border-radius: 10px;
+        width: 69px;
+        height: 48px;
+        background: #E8E8E8; 
+    }
+
+    &__text {
+        color: #2D283E;
+        line-height: normal;
+        max-width: 52px;
+        margin-top: 5px;
+    }
+
+    &__price {
+        color: #7A5AF8;
+        margin-top: 3px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card:active {
+        border: 1px solid #7A5AF8; 
+        border-radius: 10px;
+    }
+}

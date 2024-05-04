@@ -1,0 +1,125 @@
+@use '../../styles/global' as *;
+
+.donation{
+    &__header {
+        display: flex;
+        color: #7A5AF8;
+        font-weight: 600;
+        font-size: .85rem;
+        justify-content: space-between;
+        margin: .5rem 1.5rem .64rem 1rem;
+        text-align: center;
+        line-height: normal;
+    }
+
+    &__header-back {
+        min-width: 9.28rem;
+        text-decoration: none;
+        color: #7A5AF8;
+    }
+
+    &__container {
+        background-color: white;
+        min-width: 20.7rem;
+        border-radius: 10px;
+        margin: .64rem 1rem 1.42rem;
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 1.42rem;
+        min-width: 9.28rem;
+        font-weight: 600;
+        text-align: center;
+        line-height: normal;
+        text-decoration: none;
+        padding: 1.64rem 2.57rem 1.85rem;
+    } 
+}
+
+.gift {
+    &__text {
+        font-size: .86rem;
+        min-width: 9.28rem;
+        font-weight: 600;
+        text-align: center;
+        line-height: normal;
+        padding: 0 5.92rem .85rem;
+    }
+
+    &__container .gift__cards {
+        margin: 0 .78rem 0;
+    }
+}
+
+.message {
+    &__container {
+        margin: 2.14rem .5rem;
+        text-align: center;
+    }
+
+    &__text {
+        font-size: .86rem;
+        min-width: 12.85rem;
+        font-weight: 600;
+        line-height: normal;
+        padding: 0 3.43rem .85rem;
+    }
+    
+    &__field {
+        border: none;
+        border-radius: 20px;
+        min-width: 19.78rem;
+        min-height: 10.71rem;
+        font-weight: 600;
+        font-size: .86rem;
+        background-color: #F2EFFE;
+        color: #9991b9;
+        padding: .71rem; 
+        resize: vertical;
+        box-sizing: border-box;
+        overflow-y: auto;
+    
+        &::placeholder {
+            color: #CABDFC;
+            font-size: .86rem;
+            font-weight: 600;
+            line-height: 15px;
+        }
+    
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.payment {
+    &__container{
+        padding-bottom: 2.5rem;
+    }
+
+    &__total {
+        padding: 0 5.35rem 2.5rem;
+        min-width: 10rem;
+        color: #2D283E;
+        font-weight: 600;
+        font-size: 1.42rem;
+        text-align: center;
+    }
+
+    &__button {
+        display: block;
+        width: 7.21rem;
+        height: 1.78rem;
+        text-align: center;
+        font-size: .8rem;
+        font-weight: 600;
+        line-height: normal;
+        text-decoration: none;
+        padding: .42rem 1.57rem;
+        background: $main-color;
+        color: white;
+        border-radius: 249px;
+        margin: 0 auto 0;
+    }
+}

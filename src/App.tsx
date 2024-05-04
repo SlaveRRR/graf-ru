@@ -13,6 +13,8 @@ import CatalogPage from './pages/Catalog';
 import BlogPage from './pages/Blog';
 import ProfileAuthor from './pages/Author';
 import ComicsPage from './pages/ComicsPage';
+import AuthorSupportPage from './pages/AuthorSupport';
+import AuthorSupportFishPage from './pages/AuthorSupportFish';
 
 
 
@@ -53,6 +55,14 @@ const router = createBrowserRouter([{
     {
       path:'/preview',
       element:<ComicsPage/>
+    },
+    {
+      path:'/authorsupport',
+      element:<AuthorSupportPage/>
+    },
+    {
+      path:'/authorsupportfish',
+      element:<AuthorSupportFishPage/>
     },
   ]
 }])
